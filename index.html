@@ -481,8 +481,8 @@ function renderMyCard(){
   if(pr.zone)h+='<div class="row">'+esc(pr.zone)+'</div>';
   if(pr.aport)h+='<div class="row">Aporta: '+esc(pr.aport)+'</div>';
   if(pr.wa){var wad=pr.wa.replace(/[^0-9+]/g,'').replace('+','');
-    h+='<div class="hidden-row"><span>WhatsApp oculto:</span><a class="btn sm ghost" href="https://wa.me/'+esc(wad)+'" target="_blank" rel="noopener">Contactar</a><button class="eye" id="waEye">Revelar aqu&iacute;</button></div>'}
-  if(pr.mail){h+='<div class="hidden-row"><span>Correo oculto:</span><a class="btn sm ghost" href="mailto:'+esc(pr.mail)+'">Escribir</a><button class="eye" id="mailEye">Revelar aqu&iacute;</button></div>'}
+    h+='<div class="hidden-row"><span>WhatsApp oculto:</span><span id="waMask">••••••••</span><a class="btn sm ghost" href="https://wa.me/'+esc(wad)+'" target="_blank" rel="noopener">Contactar</a><button class="eye" id="waEye">Revelar aqu&iacute;</button></div>'}
+  if(pr.mail){h+='<div class="hidden-row"><span>Correo oculto:</span><span id="mailMask">••••••</span><a class="btn sm ghost" href="mailto:'+esc(pr.mail)+'">Escribir</a><button class="eye" id="mailEye">Revelar aqu&iacute;</button></div>'}
   h+='<div class="actions"><button class="btn sm ghost" id="editMyCard">Editar</button><button class="btn sm ghost" id="shareMyCard">C&oacute;digo para compartir</button></div>';
   h+='</div><div id="myCardForm" style="display:none"></div>';
   p.innerHTML=h;bindMyCard();bindEyes();
@@ -516,8 +516,9 @@ function bindEyes(){
     var b=document.getElementById(btnId);if(!b)return;
     b.addEventListener('click',function(){
       var m=document.getElementById(maskId);
-      if(m.textContent.indexOf('\u2022')>-1||m.textContent.indexOf('\u25CF')>-1){m.textContent=val;b.textContent='Ocultar'}
-      else{m.textContent='\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022';b.textContent='Revelar aqu\u00ed'}});
+      if(!m)return;
+      if(b.textContent.indexOf('Revelar')>-1){m.textContent=val;b.textContent='Ocultar'}
+      else{m.textContent='••••••••';b.textContent='Revelar aquí'}});
   }
   var pr=store.profile||{};
   eye('waEye','waMask',pr.wa||'');eye('mailEye','mailMask',pr.mail||'');
