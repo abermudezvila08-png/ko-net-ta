@@ -3,23 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Ko net ta: cada conexión abre una posibilidad. Red de conexiones de VERBUM TECH SOLUTION.">
+<meta name="description" content="Ko net ta: cada conexion abre una posibilidad. Red de conexiones de VERBUM TECH SOLUTION.">
 <title>Ko net ta — Cada conexión abre una posibilidad</title>
 <style>
-:root{--gold:#d4af37;--gold2:#ffd76a;--orange:#ff7417;--chrome:#dce5f0;--muted:#9aa7b8}
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{background:#080808;background-image:radial-gradient(ellipse at 18% -12%,#10233a 0,transparent 38%),radial-gradient(ellipse at 82% 5%,#29133a 0,transparent 36%),radial-gradient(ellipse at 50% -20%,#291c0c 0,transparent 30%);color:#dce5f0;font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;min-height:100vh;padding-bottom:92px}
-header{position:sticky;top:0;z-index:10;background:rgba(8,8,8,0.88);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid #1d1d1d;padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
+#glow{position:fixed;top:0;right:0;bottom:0;left:0;z-index:0;pointer-events:none;opacity:0;transition:opacity .4s ease}
+header{position:sticky;top:0;z-index:10;background:rgba(8,8,8,0.9);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid #1d1d1d;padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
 .logo{font-weight:800;font-size:20px;letter-spacing:-0.02em}
 .logo .net{color:#46d9ff;font-size:13px;font-weight:600}
 .logo .arr{color:#d4af37}
 .byline{display:block;font-size:10px;color:#9aa7b8;letter-spacing:0.12em;text-transform:uppercase}
+main{position:relative;z-index:1}
 .wrap{max-width:760px;margin:0 auto;padding:0 16px}
 .screen{display:none}
 .screen.active{display:block;animation:fadeIn 0.25s ease}
 @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-h1{font-size:clamp(28px,7.5vw,44px);font-weight:800;letter-spacing:-0.03em;line-height:1.08;margin:18px 0 10px;text-align:center}
+h1{font-size:clamp(28px,7.5vw,42px);font-weight:800;letter-spacing:-0.03em;line-height:1.08;margin:18px 0 10px;text-align:center}
 h1 em{font-style:normal;background:linear-gradient(90deg,#ff7417,#d4af37,#46d9ff,#c06bff);-webkit-background-clip:text;background-clip:text;color:transparent}
 h2{font-size:21px;font-weight:700;margin:22px 0 8px}
 h3{font-size:15px;margin:14px 0 6px}
@@ -28,39 +29,52 @@ p{line-height:1.55;color:#b8c4d4;margin:6px 0}
 .netbox{position:relative;height:min(52vw,300px);margin:14px auto;max-width:700px}
 .netbox canvas{width:100%;height:100%;display:block}
 .netlabel{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:800;color:#e8f2ff;font-size:15px;text-shadow:0 0 12px rgba(70,217,255,0.5);pointer-events:none}
+.stats{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:12px 0}
+.stat{border:1px solid #26292f;border-radius:13px;background:#111318;padding:9px 14px;text-align:center;min-width:96px}
+.stat b{display:block;font-size:19px;color:#ffd76a}
+.stat small{font-size:11px;color:#9aa7b8}
 .btn{display:inline-block;background:linear-gradient(135deg,#d4af37,#ff7417);color:#120c02;font-weight:800;border:0;border-radius:12px;padding:13px 22px;font-size:15px;cursor:pointer}
 .btn.ghost{background:#15181d;color:#dce5f0;border:1px solid #2c2f36}
 .btn.sm{padding:9px 13px;font-size:13px;border-radius:10px}
 .btn.danger{background:#2a1013;color:#ff8b96;border:1px solid #5c2230}
 .cta-row{text-align:center;margin:16px 0 8px}
-.search-row{display:flex;gap:8px;margin:10px 0}
-.search-row input{flex:1}
 input,textarea,select{width:100%;background:#101318;border:1px solid #2c2f36;border-radius:11px;color:#e8eef7;padding:11px 12px;font-size:15px}
 input:focus,textarea:focus{outline:2px solid #d4af37aa;border-color:#d4af37}
 label{display:block;font-size:12px;color:#9aa7b8;margin:10px 0 4px;letter-spacing:0.04em}
 .node-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin:12px 0}
 @media(min-width:560px){.node-grid{grid-template-columns:repeat(4,1fr)}}
-.node{position:relative;text-align:left;background:linear-gradient(150deg,#191919,#0e0e0e);border:1px solid #292929;border-radius:15px;min-height:96px;padding:12px;cursor:pointer;color:inherit;font:inherit}
+.node{position:relative;text-align:left;background:linear-gradient(150deg,#191919,#0e0e0e);border:1px solid #292929;border-radius:15px;min-height:96px;padding:12px;cursor:pointer;color:inherit;font:inherit;transition:border-radius .3s ease,box-shadow .3s ease,border-color .3s ease,transform .3s ease}
 .node .ico{font-size:22px;display:block;margin-bottom:5px}
 .node b{display:block;font-size:14px;color:#e8eef7}
 .node small{display:block;font-size:11px;color:#9aa7b8;margin-top:3px}
-.node:active{transform:scale(0.98)}
-.node[data-node="empresas"]{border-color:#ff3b4f66}
-.node[data-node="personas"]{border-color:#d4af3766}
-.node[data-node="conexiones"]{border-color:#48d8ff66}
-.node[data-node="informacion"]{border-color:#a9b7c866}
-.node[data-node="proyectos"]{border-color:#c06bff66}
-.node[data-node="academia"]{border-color:#71ef8766}
-.node[data-node="oportunidades"]{border-color:#ff8a3566}
+.node[data-node="empresas"]{border-color:#ff3b4f55}
+.node[data-node="personas"]{border-color:#d4af3755}
+.node[data-node="conexiones"]{border-color:#48d8ff55}
+.node[data-node="informacion"]{border-color:#a9b7c855}
+.node[data-node="proyectos"]{border-color:#c06bff55}
+.node[data-node="academia"]{border-color:#71ef8755}
+.node[data-node="oportunidades"]{border-color:#ff8a3555}
+.node[data-node="empresas"].active{border-color:#ff3b4f;border-radius:24px;box-shadow:0 0 26px #ff3b4f55;transform:scale(1.02)}
+.node[data-node="personas"].active{border-color:#d4af37;border-radius:24px;box-shadow:0 0 26px #d4af3755;transform:scale(1.02)}
+.node[data-node="conexiones"].active{border-color:#48d8ff;border-radius:24px;box-shadow:0 0 26px #48d8ff55;transform:scale(1.02)}
+.node[data-node="informacion"].active{border-color:#a9b7c8;border-radius:24px;box-shadow:0 0 26px #a9b7c855;transform:scale(1.02)}
+.node[data-node="proyectos"].active{border-color:#c06bff;border-radius:24px;box-shadow:0 0 26px #c06bff55;transform:scale(1.02)}
+.node[data-node="academia"].active{border-color:#71ef87;border-radius:24px;box-shadow:0 0 26px #71ef8755;transform:scale(1.02)}
+.node[data-node="oportunidades"].active{border-color:#ff8a35;border-radius:24px;box-shadow:0 0 26px #ff8a3555;transform:scale(1.02)}
 .card{background:#141414;border:1px solid #2c2c2c;border-left:3px solid #d4af37;border-radius:14px;padding:12px;margin:10px 0}
 .card h4{margin:0 0 4px;font-size:15px;color:#f0e6c8}
 .card .meta{font-size:12px;color:#9aa7b8;margin:2px 0}
 .card .actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chip{display:inline-block;font-size:11px;border:1px solid #5c4770;color:#d9baff;border-radius:99px;padding:2px 9px;margin-left:6px}
+.chip.gold{border-color:#5c4a1e;color:#ffd76a}
+.chip.green{border-color:#2e5c3a;color:#8ff0a5}
+.badge{display:inline-block;font-size:10px;border-radius:99px;padding:2px 8px;margin-left:5px;background:#1d2129;color:#9aa7b8;border:1px solid #2c2f36}
+.badge.live{background:#1d2b1f;color:#8ff0a5;border-color:#2e5c3a}
 .empty{border:1px dashed #2c2f36;border-radius:14px;padding:18px 14px;text-align:center;color:#9aa7b8;font-size:14px;margin:12px 0;line-height:1.5}
 .count-pill{display:inline-block;font-size:11px;color:#d4af37;border:1px solid #5c4a1e;border-radius:99px;padding:2px 9px;margin-left:6px}
 .back-row{margin:6px 0 2px}
 .note{font-size:12px;color:#8b97a6;margin-top:10px;line-height:1.5}
-footer{border-top:1px solid #1d1d1d;color:#6d7887;font-size:11px;text-align:center;padding:16px 12px;margin-top:26px}
+footer{position:relative;z-index:1;border-top:1px solid #1d1d1d;color:#6d7887;font-size:11px;text-align:center;padding:16px 12px;margin-top:26px}
 nav.tabbar{position:fixed;bottom:0;left:0;right:0;z-index:20;display:flex;background:rgba(10,10,12,0.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid #23262c;padding-bottom:env(safe-area-inset-bottom)}
 nav.tabbar button{flex:1;background:none;border:0;color:#8b97a6;font-size:10.5px;padding:9px 2px 10px;cursor:pointer;font-family:inherit}
 nav.tabbar button .ic{display:block;font-size:18px;margin-bottom:2px}
@@ -69,69 +83,77 @@ nav.tabbar button.active{color:#ffd76a}
 </style>
 </head>
 <body>
+<div id="glow"></div>
 <header>
   <div>
     <div class="logo">KO <span class="net">net</span> TA <span class="arr">&#8599;</span></div>
     <span class="byline">by VERBUM TECH SOLUTION</span>
   </div>
-  <div id="devState" class="byline" style="letter-spacing:0.05em"></div>
+  <div class="byline" style="letter-spacing:0.05em">V5</div>
 </header>
 
 <main class="wrap" id="app">
 
 <section class="screen active" id="scr-inicio">
-  <h1>Cada conexi&oacute;n abre<br><em>una posibilidad.</em></h1>
-  <p class="lead">Ko net ta &#8599; te conecta.</p>
-  <div class="netbox"><canvas id="netCanvas"></canvas><div class="netlabel">Ko net ta</div></div>
-  <p class="lead">Empresas, personas, conocimiento, proyectos y oportunidades:<br>una red que se construye con cada v&iacute;nculo.</p>
-  <div class="cta-row">
-    <button class="btn" id="goExplorar">Conectar &#8599;</button>
-  </div>
+  <h1>Tu vista</h1>
+  <p class="lead">Tu constelaci&oacute;n crece con cada tarjeta que haces.</p>
+  <div class="netbox"><canvas id="homeCanvas"></canvas><div class="netlabel">YO</div></div>
+  <div class="stats" id="homeStats"></div>
+  <div class="cta-row"><button class="btn" id="goExplorar">Conectar &#8599;</button></div>
 </section>
 
 <section class="screen" id="scr-explorar">
   <h2>Explora la red</h2>
-  <p>Elige un nodo. Todo lo que ves aqu&iacute; son conexiones guardadas en este dispositivo, sin datos de prueba.</p>
+  <p>Elige un nodo. T&oacute;calo y su color iluminar&aacute; tu fondo.</p>
   <div class="node-grid" id="nodeGrid"></div>
   <div id="nodePanel"></div>
+  <button class="btn sm ghost" id="btnAllCards">Ver todas mis tarjetas</button>
+  <div id="allCardsPanel" style="display:none"></div>
 </section>
 
-<section class="screen" id="scr-tarjetas">
-  <h2>Mis tarjetas</h2>
-  <p>Tus conexiones guardadas, agrupadas por nodo. Se quedan en este dispositivo.</p>
-  <div id="cardsPanel"></div>
+<section class="screen" id="scr-super">
+  <h2>S&uacute;per tarjetas</h2>
+  <p>Un grupo tuyo con tantos miembros como quieras: mi grupo, empresa, familia, pareja u otro v&iacute;nculo. Todo lo que se aporte queda exclusivo del grupo, hasta que con la anuencia de sus miembros salga al mercado.</p>
+  <button class="btn sm" id="btnNewSuper">+ Nueva s&uacute;per tarjeta</button>
+  <div id="superForm" style="display:none"></div>
+  <div id="superDetail"></div>
+  <div id="superList"></div>
+</section>
+
+<section class="screen" id="scr-mercado">
+  <h2>Mercado</h2>
+  <p>Aqu&iacute; se ven las s&uacute;per tarjetas publicadas. Carga la que te interese a tu nodo, o importa una con el c&oacute;digo que te compartieron.</p>
+  <div id="marketList"></div>
+  <h3>Importar por c&oacute;digo</h3>
+  <textarea id="mkCode" rows="3" placeholder="Pega aqu&iacute; el c&oacute;digo de la s&uacute;per tarjeta"></textarea>
+  <p><button class="btn sm" id="mkImport">Importar s&uacute;per tarjeta</button></p>
+  <p class="note">El mercado global en l&iacute;nea llega cuando VTS conecte su servidor. Hoy se comparte con c&oacute;digos: crea tu s&uacute;per tarjeta, exporta su c&oacute;digo y env&iacute;alo por WhatsApp; quien lo pegue aqu&iacute; la carga a su nodo.</p>
 </section>
 
 <section class="screen" id="scr-empresas">
   <h2>Empresas</h2>
-  <p>Fichas p&uacute;blicas de negocios reales. Registra la tuya o las que conozcas; quedar&aacute;n en este dispositivo hasta conectar la plataforma.</p>
+  <p>Fichas de negocios reales. Registra la tuya o las que conozcas; quedar&aacute;n en este dispositivo hasta conectar la plataforma.</p>
   <button class="btn sm ghost" id="btnBizForm">+ Registrar ficha</button>
   <div id="bizForm" style="display:none"></div>
   <div id="bizList"></div>
 </section>
 
-<section class="screen" id="scr-acceso">
-  <h2>Acceso a la red VTS</h2>
-  <div class="empty">El acceso de miembros con QR+ se activar&aacute; cuando la plataforma VTS conecte su servidor de identidad.<br><br>Mientras tanto, la red funciona con los datos que guardas en este dispositivo: tus tarjetas y tus fichas de empresas.</div>
-</section>
-
 </main>
 
-<footer>Ko net ta te conecta &middot; by VERBUM TECH SOLUTION<br>Prototipo local: tarjetas y fichas guardadas en este dispositivo</footer>
+<footer>Ko net ta te conecta &middot; by VERBUM TECH SOLUTION<br>Prototipo local: tarjetas, s&uacute;per tarjetas y fichas guardadas en este dispositivo</footer>
 
 <nav class="tabbar" id="tabbar">
   <button data-scr="scr-inicio" class="active"><span class="ic">&#8962;</span>Inicio</button>
   <button data-scr="scr-explorar"><span class="ic">&#10023;</span>Explorar</button>
-  <button data-scr="scr-tarjetas"><span class="ic">&#9671;</span>Mis tarjetas</button>
+  <button data-scr="scr-super"><span class="ic">&#9827;</span>S&uacute;per</button>
+  <button data-scr="scr-mercado"><span class="ic">&#8600;</span>Mercado</button>
   <button data-scr="scr-empresas"><span class="ic">&#9635;</span>Empresas</button>
-  <button data-scr="scr-acceso"><span class="ic">&#8599;</span>Acceso</button>
 </nav>
 
 <div id="knt-err"></div>
-
 <script>
 'use strict';
-/* VTS ko-net-ta v4 pantallas independientes, sin datos demo. 2026-11-24 */
+/* VTS ko-net-ta v5: nodos vivos, tu vista, super tarjetas infinitas y mercado por codigos. 2026-11-24 */
 function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;')}
 var errBox=document.getElementById('knt-err');
 window.onerror=function(m){try{errBox.style.display='block';errBox.textContent='Aviso: '+m}catch(e){}return false};
@@ -147,18 +169,28 @@ var NODES=[
 ];
 function nodeById(id){for(var i=0;i<NODES.length;i++){if(NODES[i].id===id)return NODES[i]}return null}
 var store={};
-function load(){try{store.cards=JSON.parse(localStorage.getItem('konta_cards')||'[]');store.biz=JSON.parse(localStorage.getItem('konta_biz')||'[]')}catch(e){store.cards=[];store.biz=[]}}
-function save(){try{localStorage.setItem('konta_cards',JSON.stringify(store.cards));localStorage.setItem('konta_biz',JSON.stringify(store.biz))}catch(e){}}
+function load(){try{store.cards=JSON.parse(localStorage.getItem('konta_cards')||'[]');store.biz=JSON.parse(localStorage.getItem('konta_biz')||'[]');store.supers=JSON.parse(localStorage.getItem('konta_supers')||'[]')}catch(e){store.cards=[];store.biz=[];store.supers=[]}}
+function save(){try{localStorage.setItem('konta_cards',JSON.stringify(store.cards));localStorage.setItem('konta_biz',JSON.stringify(store.biz));localStorage.setItem('konta_supers',JSON.stringify(store.supers))}catch(e){}}
 function uid(){return 'k'+Date.now().toString(36)+Math.floor(Math.random()*1e4).toString(36)}
 
-/* navegacion por pantallas independientes */
+/* resplandor de fondo con el color del nodo activo */
+var glow=document.getElementById('glow');
+function setGlow(hex){glow.style.background='radial-gradient(ellipse at 50% 28%,'+hex+'26 0, transparent 62%)';glow.style.opacity='1'}
+function clearGlow(){glow.style.opacity='0'}
+function clearNodes(){var ns=document.querySelectorAll('.node');for(var i=0;i<ns.length;i++){ns[i].className='node'}}
+
+/* navegacion por pantallas independientes; al salir, todo se apaga */
 function showScreen(id){
+  clearNodes();clearGlow();
   var scr=document.querySelectorAll('.screen');
   for(var i=0;i<scr.length;i++){scr[i].className='screen'+(scr[i].id===id?' active':'')}
   var btns=document.querySelectorAll('#tabbar button');
   for(var j=0;j<btns.length;j++){btns[j].className=(btns[j].getAttribute('data-scr')===id?'active':'')}
   window.scrollTo(0,0);
-  if(id==='scr-tarjetas')renderCards();
+  if(id==='scr-inicio')renderHome();
+  if(id==='scr-explorar')renderNodeGrid();
+  if(id==='scr-super')renderSuperList();
+  if(id==='scr-mercado')renderMarket();
   if(id==='scr-empresas')renderBiz();
 }
 document.getElementById('tabbar').addEventListener('click',function(ev){
@@ -167,7 +199,7 @@ document.getElementById('tabbar').addEventListener('click',function(ev){
 });
 document.getElementById('goExplorar').addEventListener('click',function(){showScreen('scr-explorar')});
 
-/* explorar: nodos */
+/* explorar: nodos vivos */
 function renderNodeGrid(){
   var g=document.getElementById('nodeGrid'),h='';
   for(var i=0;i<NODES.length;i++){var n=NODES[i];
@@ -177,7 +209,13 @@ function renderNodeGrid(){
 }
 document.getElementById('nodeGrid').addEventListener('click',function(ev){
   var b=ev.target;while(b&&!b.getAttribute('data-node'))b=b.parentNode;
-  if(b)openNode(b.getAttribute('data-node'));
+  if(!b)return;
+  var id=b.getAttribute('data-node');
+  var ns=document.querySelectorAll('#nodeGrid .node');
+  for(var i=0;i<ns.length;i++){ns[i].className='node'}
+  b.className='node active';
+  var n=nodeById(id);if(n)setGlow(n.color);
+  openNode(id);
 });
 function openNode(id){
   var n=nodeById(id);if(!n)return;
@@ -212,26 +250,164 @@ document.getElementById('nodePanel').addEventListener('click',function(ev){
   if(ev.target.id!=='cf-save')return;
   var t=document.getElementById('cf-title').value.trim();if(!t){alert('Escribe un nombre o referencia');return}
   store.cards.push({id:uid(),node:document.getElementById('cf-node').value,title:t,note:document.getElementById('cf-note').value.trim(),contact:document.getElementById('cf-contact').value.trim(),when:new Date().toISOString().slice(0,10)});
-  save();openNode(document.getElementById('cf-node').value);renderNodeGrid();
+  save();openNode(document.getElementById('cf-node').value);renderNodeGrid();renderHome();
 });
-
-/* mis tarjetas */
+document.getElementById('btnAllCards').addEventListener('click',function(){
+  var p=document.getElementById('allCardsPanel');
+  if(p.style.display==='none'){p.style.display='block';renderCards()}else{p.style.display='none'}
+});
 function renderCards(){
-  var p=document.getElementById('cardsPanel');
-  if(store.cards.length===0){p.innerHTML='<div class="empty">Todav\u00eda no guardaste tarjetas.<br>Ve a Explorar, elige un nodo y deja la primera.</div>';return}
+  var p=document.getElementById('allCardsPanel');
+  if(store.cards.length===0){p.innerHTML='<div class="empty">Todav\u00eda no guardaste tarjetas.<br>Ve a un nodo y deja la primera.</div>';return}
   var h='';var total=0;
   for(var i=0;i<NODES.length;i++){var n=NODES[i];var mine=[];
     for(var k=0;k<store.cards.length;k++){if(store.cards[k].node===n.id)mine.push(store.cards[k])}
     if(mine.length===0)continue;total+=mine.length;
     h+='<h3>'+n.ico+' '+esc(n.name)+' <span class="count-pill">'+mine.length+'</span></h3>';
     for(var j=0;j<mine.length;j++){var t=mine[j];
-      h+='<div class="card"><h4>'+esc(t.title)+'</h4>'+(t.note?'<p class="meta">'+esc(t.note)+'</p>':'')+(t.contact?'<p class="meta">Contacto: '+esc(t.contact)+'</p>':'')+'<p class="meta">Guardada: '+esc(t.when)+'</p><div class="actions"><button class="btn sm danger" data-del="'+t.id+'">Eliminar</button></div></div>'}
+      h+='<div class="card"><h4>'+esc(t.title)+'</h4>'+(t.note?'<p class="meta">'+esc(t.note)+'</p>':'')+(t.contact?'<p class="meta">Contacto: '+esc(t.contact)+'</p>':'')+'<div class="actions"><button class="btn sm danger" data-del="'+t.id+'">Eliminar</button></div></div>'}
   }
-  if(total===0){p.innerHTML='<div class="empty">Todav\u00eda no guardaste tarjetas.<br>Ve a Explorar, elige un nodo y deja la primera.</div>';return}
-  p.innerHTML=h;bindDel(p,renderCards);
+  if(total===0){p.innerHTML='<div class="empty">Todav\u00eda no guardaste tarjetas.</div>';return}
+  p.innerHTML=h;bindDel(p,function(){renderCards();renderNodeGrid()});
 }
 
-/* empresas */
+/* super tarjetas: grupos infinitos del usuario */
+var SUPER_TYPES=['mi grupo','empresa','familia','pareja','otro v\u00ednculo'];
+document.getElementById('btnNewSuper').addEventListener('click',function(){
+  var f=document.getElementById('superForm');
+  if(f.style.display==='none'){f.style.display='block';
+    f.innerHTML='<label>Nombre del grupo</label><input id="sf-name" maxlength="80">'
+    +'<label>Tipo de v\u00ednculo</label><select id="sf-type">'+(function(){var o='';for(var i=0;i<SUPER_TYPES.length;i++){o+='<option>'+esc(SUPER_TYPES[i])+'</option>'}return o})()+'</select>'
+    +'<p><button class="btn sm" id="sf-save">Crear s\u00faper tarjeta</button></p>'}
+  else{f.style.display='none'}
+});
+document.getElementById('superForm').addEventListener('click',function(ev){
+  if(ev.target.id!=='sf-save')return;
+  var nm=document.getElementById('sf-name').value.trim();if(!nm){alert('Escribe el nombre del grupo');return}
+  var sup={id:uid(),name:nm,type:document.getElementById('sf-type').value,members:[],aportes:[],published:false};
+  store.supers.push(sup);save();
+  document.getElementById('superForm').style.display='none';
+  openSuper(sup.id);renderSuperList();renderHome();
+});
+function superById(id){for(var i=0;i<store.supers.length;i++){if(store.supers[i].id===id)return store.supers[i]}return null}
+function renderSuperList(){
+  var p=document.getElementById('superList');
+  if(store.supers.length===0){p.innerHTML='';return}
+  var h='';
+  for(var i=0;i<store.supers.length;i++){var s=store.supers[i];
+    h+='<div class="card"><h4>'+esc(s.name)+'<span class="chip">'+esc(s.type)+'</span>'+(s.published?'<span class="badge live">En el mercado</span>':'')+(s.imported?'<span class="badge">Importada</span>':'')+'</h4>'
+    +'<p class="meta">'+s.members.length+' miembro(s) \u00b7 '+s.aportes.length+' aporte(s)</p>'
+    +'<div class="actions"><button class="btn sm ghost" data-open="'+s.id+'">Abrir</button><button class="btn sm ghost" data-export="'+s.id+'">C\u00f3digo</button><button class="btn sm danger" data-delsup="'+s.id+'">Eliminar</button></div></div>'}
+  p.innerHTML=h;
+}
+document.getElementById('superList').addEventListener('click',function(ev){
+  var el=ev.target;
+  while(el&&!(el.getAttribute&&(el.getAttribute('data-open')||el.getAttribute('data-export')||el.getAttribute('data-delsup'))))el=el.parentNode;
+  if(!el||!el.getAttribute)return;
+  var id=el.getAttribute('data-open')||el.getAttribute('data-export')||el.getAttribute('data-delsup');
+  if(el.getAttribute('data-open')){openSuper(id)}
+  else if(el.getAttribute('data-export')){showCode(id)}
+  else{if(confirm('\u00bfEliminar esta s\u00faper tarjeta con todo su contenido?')){var nx=[];for(var i=0;i<store.supers.length;i++){if(store.supers[i].id!==id)nx.push(store.supers[i])}store.supers=nx;save();renderSuperList();renderHome()}}
+});
+function openSuper(id){
+  var s=superById(id);if(!s)return;
+  var h='<div class="back-row"><button class="btn sm ghost" id="supBack">&larr; S&uacute;per tarjetas</button></div>';
+  h+='<h3>'+esc(s.name)+' <span class="chip">'+esc(s.type)+'</span>'+(s.published?' <span class="badge live">En el mercado</span>':'')+'</h3>';
+  if(s.imported){h+='<p class="meta">Importada por c\u00f3digo. Su contenido es de solo lectura aqu\u00ed.</p>'}
+  h+='<h4 style="color:#ffd76a">Miembros ('+s.members.length+')</h4>';
+  if(s.members.length===0)h+='<p class="meta">Sin miembros todav\u00eda. Agrega todos los que quieras: el grupo no tiene l\u00edmite.</p>';
+  for(var i=0;i<s.members.length;i++){var m=s.members[i];
+    h+='<p class="meta">\u2022 '+esc(m.name)+(m.contact?' \u00b7 '+esc(m.contact):'')+(s.imported?'':' <button class="btn sm danger" data-delmem="'+i+'">x</button>')+'</p>'}
+  if(!s.imported){h+='<div id="memForm" style="display:none"><label>Nombre del miembro</label><input id="m-name" maxlength="80"><label>Contacto (opcional)</label><input id="m-contact" maxlength="120"><p><button class="btn sm" id="m-add">Agregar miembro</button></p></div><button class="btn sm ghost" id="addMem">+ Agregar miembro</button>'}
+  h+='<h4 style="color:#ffd76a">Aportes exclusivos del grupo ('+s.aportes.length+')</h4>';
+  if(s.aportes.length===0)h+='<p class="meta">Lo que se aporte aqu\u00ed no se ve fuera del grupo, salvo que se publique con anuencia.</p>';
+  for(var j=0;j<s.aportes.length;j++){var a=s.aportes[j];
+    h+='<div class="card"><h4>'+esc(a.title)+'</h4>'+(a.note?'<p class="meta">'+esc(a.note)+'</p>':'')+'<p class="meta">Aportado: '+esc(a.when)+'</p>'+(s.imported?'':'<div class="actions"><button class="btn sm danger" data-delapr="'+j+'">Eliminar</button></div>')+'</div>'}
+  if(!s.imported){h+='<div id="aprForm" style="display:none"><label>T\u00edtulo del aporte</label><input id="a-title" maxlength="80"><label>Detalle (opcional)</label><textarea id="a-note" rows="2" maxlength="300"></textarea><p><button class="btn sm" id="a-add">Guardar aporte</button></p></div><button class="btn sm ghost" id="addApr">+ Nuevo aporte</button>';
+    h+='<div id="pubArea" style="margin-top:12px">'+pubHTML(s)+'</div>'}
+  var d=document.getElementById('superDetail');d.innerHTML=h;
+  document.getElementById('supBack').addEventListener('click',function(){d.innerHTML=''});
+  var b1=document.getElementById('addMem');
+  if(b1)b1.addEventListener('click',function(){var f=document.getElementById('memForm');f.style.display=(f.style.display==='none'?'block':'none')});
+  var b2=document.getElementById('m-add');
+  if(b2)b2.addEventListener('click',function(){var nm=document.getElementById('m-name').value.trim();if(!nm){alert('Escribe el nombre del miembro');return}s.members.push({name:nm,contact:document.getElementById('m-contact').value.trim()});save();openSuper(id);renderSuperList()});
+  var b3=document.getElementById('addApr');
+  if(b3)b3.addEventListener('click',function(){var f=document.getElementById('aprForm');f.style.display=(f.style.display==='none'?'block':'none')});
+  var b4=document.getElementById('a-add');
+  if(b4)b4.addEventListener('click',function(){var t=document.getElementById('a-title').value.trim();if(!t){alert('Escribe el t\u00edtulo del aporte');return}s.aportes.push({id:uid(),title:t,note:document.getElementById('a-note').value.trim(),when:new Date().toISOString().slice(0,10)});save();openSuper(id);renderSuperList()});
+  var bs=d.querySelectorAll('[data-delmem],[data-delapr]');
+  function delSmall(ev){var el=ev.target;while(el&&!(el.getAttribute&&(el.getAttribute('data-delmem')!==null||el.getAttribute('data-delapr')!==null)))el=el.parentNode;if(!el||!el.getAttribute)return;
+    var mi=el.getAttribute('data-delmem'),ai=el.getAttribute('data-delapr');
+    if(mi!==null&&mi!==''){s.members.splice(Number(mi),1)}if(ai!==null&&ai!==''){s.aportes.splice(Number(ai),1)}
+    save();openSuper(id);renderSuperList()}
+  for(var k=0;k<bs.length;k++){bs[k].addEventListener('click',delSmall)}
+  var pb=document.getElementById('pubBtn');
+  if(pb)pb.addEventListener('click',function(){var f=document.getElementById('pubConfirm');f.style.display=(f.style.display==='none'?'block':'none')});
+  var pc=document.getElementById('pubDo');
+  if(pc)pc.addEventListener('click',function(){
+    var ck=document.getElementById('pubConsent');
+    if(!ck.checked){alert('Necesita la anuencia de los miembros: marca la casilla de consentimiento');return}
+    s.published=true;s.publishedAt=new Date().toISOString().slice(0,10);save();openSuper(id);renderSuperList();renderHome();
+  });
+  var pu=document.getElementById('pubOff');
+  if(pu)pu.addEventListener('click',function(){s.published=false;save();openSuper(id);renderSuperList();renderHome()});
+}
+function pubHTML(s){
+  if(s.published)return '<p class="note">Publicada en el mercado el '+esc(s.publishedAt||'').replace('T',' ').slice(0,10)+'. <button class="btn sm ghost" id="pubOff">Retirar del mercado</button></p>';
+  return '<button class="btn sm" id="pubBtn">Publicar al mercado</button><div id="pubConfirm" style="display:none"><label style="display:flex;gap:8px;align-items:flex-start"><input type="checkbox" id="pubConsent" style="width:auto;margin-top:2px"> <span style="font-size:12px;color:#9aa7b8">Los miembros dan su anuencia para que esta s\u00faper tarjeta sea visible en el mercado.</span></label><p><button class="btn sm" id="pubDo">Confirmar publicaci\u00f3n</button></p></div>';
+}
+function showCode(id){
+  var s=superById(id);if(!s)return;
+  var payload={v:1,name:s.name,type:s.type,members:s.members,aportes:s.aportes};
+  var code=btoa(unescape(encodeURIComponent(JSON.stringify(payload))));
+  var d=document.getElementById('superDetail');
+  var h='<div class="card"><h4>C\u00f3digo de '+esc(s.name)+'</h4><textarea id="codeBox" rows="4">'+esc(code)+'</textarea><p class="note">C\u00f3pialo y env\u00edalo por WhatsApp o donde quieras. Quien lo pegue en Mercado \u2192 Importar, cargar\u00e1 esta s\u00faper tarjeta a su colecci\u00f3n.</p><button class="btn sm ghost" id="codeBack">Cerrar</button></div>';
+  d.innerHTML=h;
+  document.getElementById('codeBack').addEventListener('click',function(){openSuper(id)});
+}
+
+/* mercado: super tarjetas publicadas + importacion por codigo */
+function renderMarket(){
+  var p=document.getElementById('marketList');
+  var pub=[];for(var i=0;i<store.supers.length;i++){if(store.supers[i].published)pub.push(store.supers[i])}
+  if(pub.length===0){p.innerHTML='<div class="empty">Todav\u00eda no hay s\u00faper tarjetas en el mercado.<br>Publica la tuya en la pesta\u00f1a S\u00faper o importa un c\u00f3digo abajo.</div>';return}
+  var h='';
+  for(var j=0;j<pub.length;j++){var s=pub[j];
+    h+='<div class="card"><h4>'+esc(s.name)+'<span class="chip">'+esc(s.type)+'</span>'+(s.imported?'<span class="badge">Importada</span>':'<span class="badge live">Tuya</span>')+(s.loaded?'<span class="badge">Cargada</span>':'')+'</h4>'
+    +'<p class="meta">'+s.members.length+' miembro(s) \u00b7 '+s.aportes.length+' aporte(s)</p>';
+    if(s.imported&&!s.loaded){h+='<div class="actions"><button class="btn sm" data-load="'+s.id+'">Cargar a mi nodo</button></div><div id="load-'+s.id+'" style="display:none"><label>Nodo donde cargarla</label><select id="ln-'+s.id+'">'+(function(){var o='';for(var k=0;k<NODES.length;k++){o+='<option value="'+NODES[k].id+'">'+esc(NODES[k].name)+'</option>'}return o})()+'</select><p><button class="btn sm" data-doload="'+s.id+'">Confirmar carga</button></p></div>'}
+    h+='</div>'}
+  p.innerHTML=h;
+}
+document.getElementById('marketList').addEventListener('click',function(ev){
+  var el=ev.target;
+  while(el&&!(el.getAttribute&&(el.getAttribute('data-load')||el.getAttribute('data-doload'))))el=el.parentNode;
+  if(!el||!el.getAttribute)return;
+  var id=el.getAttribute('data-load')||el.getAttribute('data-doload');
+  if(el.getAttribute('data-load')){var f=document.getElementById('load-'+id);if(f)f.style.display='block'}
+  else{
+    var s=superById(id);if(!s)return;
+    var node=document.getElementById('ln-'+id).value;
+    var n=0;
+    for(var i=0;i<s.aportes.length;i++){var a=s.aportes[i];
+      store.cards.push({id:uid(),node:node,title:a.title,note:(s.name?'De s\u00faper '+s.name+(a.note?': '+a.note:''):'')||a.note,contact:'',when:new Date().toISOString().slice(0,10)});n++}
+    s.loaded=true;save();renderMarket();renderNodeGrid();renderHome();
+    alert('Cargados '+n+' aporte(s) a tu nodo');
+  }
+});
+document.getElementById('mkImport').addEventListener('click',function(){
+  var raw=document.getElementById('mkCode').value.trim();if(!raw){alert('Pega el c\u00f3digo primero');return}
+  try{
+    var obj=JSON.parse(decodeURIComponent(escape(atob(raw))));
+    if(!obj||obj.v!==1||!obj.name)throw new Error('formato');
+    var sup={id:uid(),name:String(obj.name).slice(0,80),type:String(obj.type||'otro v\u00ednculo').slice(0,40),members:obj.members||[],aportes:obj.aportes||[],published:true,imported:true};
+    store.supers.push(sup);save();document.getElementById('mkCode').value='';
+    renderMarket();renderSuperList();renderHome();
+    alert('Importada: '+sup.name+'. Ya puedes cargarla a tu nodo.');
+  }catch(e){alert('C\u00f3digo no v\u00e1lido. C\u00f3pialo completo, tal como te lo enviaron.')}
+});
+
+/* empresas (igual que v4) */
 var bizFormOpen=false;
 document.getElementById('btnBizForm').addEventListener('click',function(){
   var f=document.getElementById('bizForm');bizFormOpen=!bizFormOpen;f.style.display=bizFormOpen?'block':'none';
@@ -246,7 +422,7 @@ document.getElementById('bizForm').addEventListener('click',function(ev){
   if(ev.target.id!=='bf-save')return;
   var nm=document.getElementById('bf-name').value.trim();if(!nm){alert('Escribe el nombre del negocio');return}
   store.biz.push({id:uid(),name:nm,act:document.getElementById('bf-act').value.trim(),zone:document.getElementById('bf-zone').value.trim(),wa:document.getElementById('bf-wa').value.trim(),desc:document.getElementById('bf-desc').value.trim(),when:new Date().toISOString().slice(0,10)});
-  save();renderBiz();
+  save();renderBiz();renderHome();
 });
 function renderBiz(){
   var p=document.getElementById('bizList');
@@ -266,38 +442,58 @@ function renderBiz(){
   var bs=p.querySelectorAll('[data-del]');
   function del(ev){var el=ev.target;while(el&&!el.getAttribute('data-del'))el=el.parentNode;if(!el)return;var id=el.getAttribute('data-del');
     var nx=[];for(var i=0;i<store.biz.length;i++){if(store.biz[i].id!==id)nx.push(store.biz[i])}
-    store.biz=nx;save();renderBiz();}
+    store.biz=nx;save();renderBiz();renderHome();}
   for(var j=0;j<bs.length;j++){bs[j].addEventListener('click',del)}
 }
 
-/* red animada */
-function drawNet(){
-  var cv=document.getElementById('netCanvas');if(!cv||!cv.getContext)return;
+/* tu vista: constelacion que crece con tus tarjetas */
+function renderHome(){
+  var st=document.getElementById('homeStats');
+  var supTuyas=0;for(var i=0;i<store.supers.length;i++){if(!store.supers[i].imported)supTuyas++}
+  st.innerHTML='<div class="stat"><b>'+store.cards.length+'</b><small>tarjetas</small></div>'
+    +'<div class="stat"><b>'+supTuyas+'</b><small>s\u00faper grupos</small></div>'
+    +'<div class="stat"><b>'+store.biz.length+'</b><small>fichas</small></div>';
+  drawHome();
+}
+function drawHome(){
+  var cv=document.getElementById('homeCanvas');if(!cv||!cv.getContext)return;
   var ctx=cv.getContext('2d');
-  function size(){var r=cv.parentNode.getBoundingClientRect();cv.width=r.width;cv.height=r.height}
-  size();
-  var cols=['#d4af37','#ff7417','#46d9ff','#c06bff','#71ef87'];
-  var pts=[];for(var i=0;i<26;i++){pts.push({x:Math.random()*cv.width,y:Math.random()*cv.height,vx:(Math.random()-0.5)*0.35,vy:(Math.random()-0.5)*0.35,r:1.2+Math.random()*2.2,c:cols[i%cols.length]})}
-  function frame(){
+  var r=cv.parentNode.getBoundingClientRect();cv.width=r.width;cv.height=r.height;
+  var cx=cv.width/2,cy=cv.height/2,R=Math.min(cv.width,cv.height)*0.36;
+  var ang=-Math.PI/2;
+  var pts=[];
+  for(var i=0;i<NODES.length;i++){
+    var n=NODES[i];var c=0;for(var k=0;k<store.cards.length;k++){if(store.cards[k].node===n.id)c++}
+    pts.push({n:n,c:c,x:cx+R*Math.cos(ang),y:cy+R*Math.sin(ang)});ang+=(Math.PI*2)/NODES.length;
+  }
+  if(window.__kntRaf)return;window.__kntRaf=true;
+  function frame(t){
     ctx.clearRect(0,0,cv.width,cv.height);
-    for(var i=0;i<pts.length;i++){var a=pts[i];a.x+=a.vx;a.y+=a.vy;
-      if(a.x<0||a.x>cv.width)a.vx=-a.vx;if(a.y<0||a.y>cv.height)a.vy=-a.vy;
-      for(var j=i+1;j<pts.length;j++){var b=pts[j];var dx=a.x-b.x,dy=a.y-b.y;var d2=dx*dx+dy*dy;
-        if(d2<15000){ctx.strokeStyle='rgba(120,160,220,'+(0.22*(1-d2/15000))+')';ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke()}}}
-    for(var k=0;k<pts.length;k++){var p=pts[k];ctx.fillStyle=p.c;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,6.29);ctx.fill()}
+    var wob=Math.sin(t/1800)*4;
+    for(var i=0;i<pts.length;i++){var p=pts[i];
+      if(p.c>0){ctx.strokeStyle='rgba(120,160,220,0.35)';ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(p.x,p.y+wob);ctx.stroke()}}
+    ctx.fillStyle='#ffd76a';ctx.beginPath();ctx.arc(cx,cy,10,0,6.29);ctx.fill();
+    ctx.fillStyle='#120c02';ctx.font='bold 9px sans-serif';ctx.textAlign='center';ctx.fillText('YO',cx,cy+3);
+    for(var j=0;j<pts.length;j++){var q=pts[j];
+      var rad=q.c>0?(7+Math.min(q.c,12)*1.6):5;
+      ctx.globalAlpha=q.c>0?1:0.28;
+      ctx.fillStyle=q.n.color;ctx.beginPath();ctx.arc(q.x,q.y+wob,rad,0,6.29);ctx.fill();
+      ctx.globalAlpha=1;
+      ctx.fillStyle='#9aa7b8';ctx.font='10px sans-serif';ctx.fillText(q.n.name+' '+(q.c||''),q.x,q.y+wob+rad+11);
+    }
     requestAnimationFrame(frame);
   }
-  frame();
+  requestAnimationFrame(frame);
 }
 
 /* arranque resistente: cada pieza por separado */
 function boot(){
   try{load()}catch(e){}
   try{renderNodeGrid()}catch(e){}
-  try{renderCards()}catch(e){}
+  try{renderSuperList()}catch(e){}
+  try{renderMarket()}catch(e){}
   try{renderBiz()}catch(e){}
-  try{drawNet()}catch(e){}
-  try{document.getElementById('devState').textContent='V4'}catch(e){}
+  try{renderHome()}catch(e){}
 }
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',boot)}else{boot()}
 </script>
