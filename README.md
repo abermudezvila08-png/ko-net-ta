@@ -1,5 +1,7 @@
 # Ko net ta — Cada conexión abre una posibilidad
 
+> **Licencia propietaria · Todos los derechos reservados** — véase [LICENSE](LICENSE). Uso, copia o modificación solo con autorización escrita de VERBUM TECH SOLUTION.
+
 Prototipo local de red de conexiones (demo) de VERBUM TECH SOLUTION.
 Un solo archivo (`index.html`), sin dependencias externas: búsquedas demo,
 bolsas de conexiones con tarjetas QR+, sesión demostrativa y Super tarjeta
