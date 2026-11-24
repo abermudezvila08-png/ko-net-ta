@@ -502,6 +502,8 @@ function bindMyCard(){
     var f=document.getElementById('myCardForm');
     if(f.style.display==='none'){f.style.display='block';f.innerHTML=myCardFormHTML(store.profile||{});bindSave()}
     else{f.style.display='none'}});
+  var sh=document.getElementById('shareMyCard');
+  if(sh)sh.addEventListener('click',function(){showCardCode(false)});
 }
 function bindSave(){
   var b=document.getElementById('pf-save');
