@@ -1,98 +1,305 @@
 <!doctype html>
-<!-- VTS ko-net-ta v3-compat 2026-11-24: base version pesada; color-mix/dvh/inset con fallbacks universales, banner rojo de errores -->
 <html lang="es">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Ko net ta: cada conexión abre una posibilidad. Red de conexiones de VERBUM TECH SOLUTION.">
 <title>Ko net ta — Cada conexión abre una posibilidad</title>
 <style>
-
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 18% -12%,#10233a 0,transparent 38%),radial-gradient(ellipse at 82% 5%,#29133a 0,transparent 36%),radial-gradient(ellipse at 50% -20%,#291c0c 0,#080808 56%);color:#b8c7d9;font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;overflow-x:hidden}
-button,input,select,textarea{font:inherit}button{cursor:pointer;color:inherit;background:#171717;border:1px solid #3b3324;border-radius:14px;padding:11px 14px;transition:.18s}button:hover,button:focus-visible{border-color:#d4af37;box-shadow:0 0 14px #d4af3724;outline:none}button.primary{background:linear-gradient(120deg,#f2b64b,#ff7417);color:#130d04;border:0;font-weight:800}button.ghost{background:transparent;border-color:#41331b}button.small{padding:8px 11px;border-radius:10px;font-size:13px}button:disabled{opacity:.45;cursor:not-allowed}
-.wrap{max-width:1050px;margin:auto;padding:16px 18px 100px}.top{display:flex;align-items:center;justify-content:space-between;gap:10px}.brand{font-weight:900;letter-spacing:.07em;font-size:clamp(25px,6vw,37px);display:flex;align-items:center;gap:2px}.brand .net{font-size:.65em;color:#ffd76a;font-weight:500;letter-spacing:.02em}.brand .arrow{color:#ffd76a;text-shadow:0 0 12px #ffd76a;display:inline-block;transform:translateY(-1px)}.brandtag{font-size:10px;letter-spacing:.16em;color:#8993a5;margin-top:-4px}.status{font-size:11px;border:1px solid #42351b;border-radius:99px;padding:7px 10px;color:#ffd76a}.hero{text-align:center;padding:30px 0 16px}.hero h1{font-size:clamp(26px,7vw,46px);line-height:1.1;margin:12px 0;font-weight:800;letter-spacing:-.03em}.hero h1 em{font-style:normal;color:#ffd76a}.hero p{color:#8993a5;max-width:620px;margin:10px auto}.thread{height:210px;position:relative;margin:4px auto 8px;max-width:650px;overflow:hidden}.thread canvas{width:100%;height:100%;display:block}.thread-caption{font-size:11px;color:#d5b35d;letter-spacing:.18em;text-transform:uppercase}
-.search{display:flex;gap:8px;margin:22px 0}.search input{flex:1;min-width:0;border-radius:14px;background:#121212;color:white;border:1px solid #3a3020;padding:13px 15px}.section{margin-top:32px}.sect-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:13px}.sect-head h2{margin:0;font-size:19px}.sect-head small{color:#8993a5}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.tile{position:relative;background:linear-gradient(150deg,#191919,#0e0e0e);border:1px solid #292929;border-radius:16px;min-height:116px;padding:14px;overflow:hidden;text-align:left}.tile:after{content:"";position:absolute;width:65px;height:65px;border:1px solid #d4af3727;border-radius:50%;right:-20px;bottom:-26px;box-shadow:0 0 30px #ff741712}.tile .ico{font-size:23px;display:block;margin-bottom:5px;filter:drop-shadow(0 0 7px #ffcb4b55)}.tile b{display:block;font-size:15px}.tile span{display:block;font-size:11px;color:#8993a5;margin-top:2px}.tile.active{border-color:#a67d25;box-shadow:0 0 18px #d4af3720}.tile.active:before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#ffd76a,#ff7417,transparent)}
-.panel{background:#111;border:1px solid #332919;border-radius:18px;padding:16px;margin-top:14px}.panel h3{margin:0 0 8px}.result{padding:12px 0;border-top:1px solid #262626}.result:first-of-type{border-top:0}.result .meta{font-size:11px;color:#ffd76a}.result p{margin:4px 0;color:#d4d0c8;font-size:13px}.result .actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}.empty{color:#8993a5;font-size:13px}.bags{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.bag{border:1px dashed #8b6c2b;border-radius:17px;padding:13px;min-height:138px;background:radial-gradient(ellipse at top,#2a1d0b66,transparent 70%);position:relative}.bag .bagicon{font-size:25px;color:#ffd76a;text-shadow:0 0 12px #ffd76a;margin-bottom:5px}.bag p{font-size:12px;color:#8993a5;margin:4px 0}.bag button{font-size:12px;margin-top:8px}.drop-hint{font-size:12px;color:#8993a5;margin:10px 0}.cards{display:grid;gap:9px}.card{background:#141414;border:1px solid #2c2c2c;border-radius:15px;padding:14px;display:flex;gap:12px;align-items:flex-start}.qr{width:54px;height:54px;flex:0 0 54px;border-radius:11px;border:1px solid #614b1e;display:grid;place-items:center;background:repeating-linear-gradient(45deg,#1b1b1b 0 3px,#101010 3px 6px);font-size:19px;color:#ffd76a}.card h3{font-size:14px;margin:0}.card p{font-size:12px;color:#8993a5;margin:4px 0}.card .card-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.public-note{border-left:2px solid #ff7417;padding-left:10px;color:#d8d2c7;font-size:12px;margin-top:12px}.authbox{background:#15120d;border:1px solid #63481c;border-radius:16px;padding:14px;margin-top:12px}.authbox p{color:#8993a5;font-size:12px}.authbox input{width:100%;margin:7px 0;border-radius:10px;border:1px solid #42351b;background:#090909;color:white;padding:11px}.demo-tag{display:inline-block;border:1px solid #6d5423;color:#e7c35e;border-radius:50px;padding:2px 8px;font-size:10px}.footer{text-align:center;color:#777;font-size:11px;margin-top:34px}.footer b{color:#c9a848}.modal{position:fixed;top:0;right:0;bottom:0;left:0;background:#000c;display:none;align-items:center;justify-content:center;padding:18px;z-index:5}.modal.open{display:flex}.modalbox{width:min(100%,440px);background:#111;border:1px solid #73551f;border-radius:20px;padding:18px;box-shadow:0 0 35px #d4af371b}.modalbox h2{margin:0 0 10px;font-size:20px}.modalbox input,.modalbox textarea,.modalbox select{width:100%;background:#080808;color:white;border:1px solid #383020;border-radius:11px;padding:11px;margin:7px 0}.modalbox textarea{min-height:75px;resize:vertical}.modalbuttons{display:flex;gap:8px;justify-content:flex-end;margin-top:10px}.toast{position:fixed;bottom:82px;left:50%;transform:translateX(-50%);background:#20170a;border:1px solid #ad832b;color:#f8d777;border-radius:50px;padding:9px 15px;font-size:12px;z-index:10;display:none}.nav{position:fixed;bottom:0;left:0;right:0;z-index:4;display:flex;justify-content:center;background:#080808ed;border-top:1px solid #2a2418;padding:9px 6px calc(9px + env(safe-area-inset-bottom));backdrop-filter:blur(10px)}.navinner{display:flex;gap:4px;max-width:700px;width:100%;justify-content:space-around}.nav button{border:0;background:transparent;border-radius:12px;padding:7px 8px;font-size:11px;color:#a9a59a}.nav button span{display:block;font-size:17px;color:#ffd76a}
-
-/* Ko net ta: living network + chrome spectrum */
-.brand{color:#dbe3ee;text-shadow:0 0 10px #b8c7d933}.brand .net{color:#46d9ff;text-shadow:0 0 12px #46d9ff77}.brand .arrow{color:#ffd76a}
-.hero h1{color:#dce5f0;text-shadow:0 0 16px #b8c7d920}.hero h1 em{background:linear-gradient(90deg,#ffd76a,#ff7417,#46d9ff,#c06bff);background-clip:text;color:transparent;text-shadow:none}.brand-promise{font-size:clamp(19px,4vw,26px)!important;color:#c8d6e8!important}.chrome-arrow{display:inline-block;color:#ffd76a;text-shadow:0 0 12px #ffbd43;animation:arrowPulse 2s infinite}@keyframes arrowPulse{50%{transform:translate(5px,-2px);filter:brightness(1.5)}}
-.thread.living{height:clamp(230px,48vw,430px);max-width:950px;margin:0 auto;position:relative;background:radial-gradient(ellipse at 50% 50%,#15243c55 0,transparent 48%),radial-gradient(ellipse at 24% 38%,#ff74171c 0,transparent 30%),radial-gradient(ellipse at 75% 62%,#c06bff20 0,transparent 32%);filter:drop-shadow(0 0 20px #208dff18)}.thread.living:before,.thread.living:after{content:"";position:absolute;top:8%;right:13%;bottom:8%;left:13%;border:1px solid #46d9ff22;border-radius:50%;transform:rotate(-24deg);pointer-events:none;animation:orbitGlow 13s linear infinite}.thread.living:after{top:17%;right:7%;bottom:17%;left:7%;border-color:#ff741722;transform:rotate(38deg);animation-duration:19s;animation-direction:reverse}@keyframes orbitGlow{to{transform:rotate(336deg)}}.thread-caption{color:#d9e2ee;letter-spacing:.08em}.thread-caption span{color:#ffd76a}.join-cta{padding:13px 30px!important;border-radius:50px!important;box-shadow:0 0 18px #ff9a2440,0 0 40px #287dff1c!important;font-size:17px!important;margin:14px auto 0;display:inline-flex;gap:14px;align-items:center}.manifesto{margin:25px auto 12px;max-width:790px;text-align:center;padding:24px 18px;border:1px solid #4c4a55;border-radius:22px;background:linear-gradient(130deg,#111a24,#151018 50%,#171309);box-shadow:0 0 28px #46d9ff0c}.manifesto h2{font-size:clamp(23px,6vw,38px);line-height:1.12;margin:0 0 10px;color:#dce5f0}.manifesto h2 em{font-style:normal;background:linear-gradient(90deg,#46d9ff,#c06bff,#ffd76a);background-clip:text;color:transparent}.manifesto p{max-width:62ch;margin:10px auto;color:#c3ccd8}.manifesto-small{color:#ffd76a!important;font-weight:600}.tile,.panel,.card,.bag{box-shadow:inset 0 0 18px #b8c7d906,0 0 15px #287dff06}.tile b,.sect-head h2,.panel h3,.card h3{color:#dbe4f0}.tile .ico{filter:drop-shadow(0 0 9px #46d9ff66)}.status{color:#c5d5e8;border-color:#50647a}.qr{color:#46d9ff;border-color:#456a84;box-shadow:0 0 12px #46d9ff22}.bag .bagicon{color:#46d9ff;text-shadow:0 0 12px #46d9ff99}.demo-tag{color:#c8d6e8;border-color:#52677c}
-@media(min-width:700px){.wrap{padding:25px 28px 50px}.hero{padding-top:42px}.grid{grid-template-columns:repeat(4,minmax(0,1fr))}.bags{grid-template-columns:repeat(4,minmax(0,1fr))}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.nav{position:static;background:transparent;border:0;padding:0;margin:10px 0}.navinner{justify-content:center}.nav button{border:1px solid #292929;background:#111}.thread{height:260px}}
-
-/* Identidades individuales, Super tarjeta y seguridad comunitaria */
-.supercard-demo{border:1px solid #c06bff;background:radial-gradient(ellipse at top,#241638,#101010 70%);border-radius:18px;padding:15px;margin-top:14px}.member-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:9px}.member{border:1px solid #393039;border-radius:14px;padding:12px;background:#121212}.member h4{margin:0 0 5px}.member small{color:#bda8d4}.member-controls{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.member-controls button{font-size:11px}.privacy-pill{display:inline-block;border:1px solid #5c4770;color:#d9baff;border-radius:99px;padding:3px 8px;font-size:10px}.safety-panel{border:1px solid #7c3434;background:linear-gradient(145deg,#241212,#111);border-radius:16px;padding:14px;margin-top:14px}.safety-panel button{margin:5px 4px 0 0}.
-/* Ko net ta: personalidad por nodo y espacios de negocio */
-.tile[data-node="empresas"],.tile[data-node="empresas"].active{--node:#ff3b4f}.tile[data-node="personas"]{--node:#d4af37}.tile[data-node="conexiones"]{--node:#48d8ff}.tile[data-node="informacion"]{--node:#a9b7c8}.tile[data-node="proyectos"]{--node:#c06bff}.tile[data-node="academia"]{--node:#71ef87}.tile[data-node="oportunidades"]{--node:#ff8a35}
-.tile{border-color:#46d9ff;border-color:color-mix(in srgb,var(--node,#46d9ff) 38%,#242424);box-shadow:inset 0 0 22px rgba(70,217,255,.07);box-shadow:inset 0 0 22px color-mix(in srgb,var(--node,#46d9ff) 7%,transparent)}.tile .ico{color:#46d9ff;color:var(--node,#46d9ff);filter:drop-shadow(0 0 8px var(--node,#46d9ff))}.tile:after{border-color:rgba(70,217,255,.28);border-color:color-mix(in srgb,var(--node,#46d9ff) 28%,transparent);box-shadow:0 0 28px rgba(70,217,255,.15);box-shadow:0 0 28px color-mix(in srgb,var(--node,#46d9ff) 15%,transparent)}.tile.active{border-color:#46d9ff;color:var(--node,#46d9ff);box-shadow:0 0 18px rgba(70,217,255,.25);box-shadow:0 0 18px color-mix(in srgb,var(--node,#46d9ff) 25%,transparent)}.tile.active:before{background:linear-gradient(90deg,transparent,#46d9ff,transparent);background:linear-gradient(90deg,transparent,var(--node,#46d9ff),transparent)}
-.card{border-left:3px solid #ff3b4f;flex-wrap:wrap}.card .qr{background:radial-gradient(circle,#ff3b4f33,#101010);border-color:#ff3b4f66;color:#ff5968}.business-contact{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}.business-contact a,.business-contact button{display:inline-block;text-decoration:none;font-size:11px;border:1px solid #393939;border-radius:10px;padding:7px 9px;color:#d8e3ef;background:#101318}.business-contact a:active{filter:brightness(1.3)}
-.bag-open{position:fixed!important;top:0!important;right:0!important;bottom:0!important;left:0!important;width:100vw!important;height:100vh!important;height:100dvh!important;z-index:20!important;overflow:auto!important;border-radius:0!important;background:radial-gradient(ellipse at top,#25132c,#08090b 65%)!important;padding:22px 16px calc(30px + env(safe-area-inset-bottom))!important;}.bag-open .bag-head{display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px solid #555;padding-bottom:12px;margin-bottom:12px}.bag-open .bag-products{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}.bag-open .bag-product{border:1px solid #333;border-radius:15px;background:#141414;padding:14px}.bag-open .bag-product h4{margin:0 0 7px}.bag-open .bag-product p{font-size:12px;color:#aeb8c8}.bag-open .bag-product .price{color:#ffb56b;font-weight:800}.bag-open .bag-close{background:#251322;border-color:#c06bff}.bag-lock{color:#ffb56b}
-@media(max-width:500px){.business-contact a,.business-contact button{padding:8px 9px}.card{gap:9px}.bag-open .bag-products{grid-template-columns:1fr 1fr}}
+:root{--gold:#d4af37;--gold2:#ffd76a;--orange:#ff7417;--chrome:#dce5f0;--muted:#9aa7b8}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:#080808;background-image:radial-gradient(ellipse at 18% -12%,#10233a 0,transparent 38%),radial-gradient(ellipse at 82% 5%,#29133a 0,transparent 36%),radial-gradient(ellipse at 50% -20%,#291c0c 0,transparent 30%);color:#dce5f0;font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;min-height:100vh;padding-bottom:92px}
+header{position:sticky;top:0;z-index:10;background:rgba(8,8,8,0.88);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid #1d1d1d;padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:800;font-size:20px;letter-spacing:-0.02em}
+.logo .net{color:#46d9ff;font-size:13px;font-weight:600}
+.logo .arr{color:#d4af37}
+.byline{display:block;font-size:10px;color:#9aa7b8;letter-spacing:0.12em;text-transform:uppercase}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+.screen{display:none}
+.screen.active{display:block;animation:fadeIn 0.25s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+h1{font-size:clamp(28px,7.5vw,44px);font-weight:800;letter-spacing:-0.03em;line-height:1.08;margin:18px 0 10px;text-align:center}
+h1 em{font-style:normal;background:linear-gradient(90deg,#ff7417,#d4af37,#46d9ff,#c06bff);-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{font-size:21px;font-weight:700;margin:22px 0 8px}
+h3{font-size:15px;margin:14px 0 6px}
+p{line-height:1.55;color:#b8c4d4;margin:6px 0}
+.lead{text-align:center;color:#aeb9c9}
+.netbox{position:relative;height:min(52vw,300px);margin:14px auto;max-width:700px}
+.netbox canvas{width:100%;height:100%;display:block}
+.netlabel{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:800;color:#e8f2ff;font-size:15px;text-shadow:0 0 12px rgba(70,217,255,0.5);pointer-events:none}
+.btn{display:inline-block;background:linear-gradient(135deg,#d4af37,#ff7417);color:#120c02;font-weight:800;border:0;border-radius:12px;padding:13px 22px;font-size:15px;cursor:pointer}
+.btn.ghost{background:#15181d;color:#dce5f0;border:1px solid #2c2f36}
+.btn.sm{padding:9px 13px;font-size:13px;border-radius:10px}
+.btn.danger{background:#2a1013;color:#ff8b96;border:1px solid #5c2230}
+.cta-row{text-align:center;margin:16px 0 8px}
+.search-row{display:flex;gap:8px;margin:10px 0}
+.search-row input{flex:1}
+input,textarea,select{width:100%;background:#101318;border:1px solid #2c2f36;border-radius:11px;color:#e8eef7;padding:11px 12px;font-size:15px}
+input:focus,textarea:focus{outline:2px solid #d4af37aa;border-color:#d4af37}
+label{display:block;font-size:12px;color:#9aa7b8;margin:10px 0 4px;letter-spacing:0.04em}
+.node-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin:12px 0}
+@media(min-width:560px){.node-grid{grid-template-columns:repeat(4,1fr)}}
+.node{position:relative;text-align:left;background:linear-gradient(150deg,#191919,#0e0e0e);border:1px solid #292929;border-radius:15px;min-height:96px;padding:12px;cursor:pointer;color:inherit;font:inherit}
+.node .ico{font-size:22px;display:block;margin-bottom:5px}
+.node b{display:block;font-size:14px;color:#e8eef7}
+.node small{display:block;font-size:11px;color:#9aa7b8;margin-top:3px}
+.node:active{transform:scale(0.98)}
+.node[data-node="empresas"]{border-color:#ff3b4f66}
+.node[data-node="personas"]{border-color:#d4af3766}
+.node[data-node="conexiones"]{border-color:#48d8ff66}
+.node[data-node="informacion"]{border-color:#a9b7c866}
+.node[data-node="proyectos"]{border-color:#c06bff66}
+.node[data-node="academia"]{border-color:#71ef8766}
+.node[data-node="oportunidades"]{border-color:#ff8a3566}
+.card{background:#141414;border:1px solid #2c2c2c;border-left:3px solid #d4af37;border-radius:14px;padding:12px;margin:10px 0}
+.card h4{margin:0 0 4px;font-size:15px;color:#f0e6c8}
+.card .meta{font-size:12px;color:#9aa7b8;margin:2px 0}
+.card .actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.empty{border:1px dashed #2c2f36;border-radius:14px;padding:18px 14px;text-align:center;color:#9aa7b8;font-size:14px;margin:12px 0;line-height:1.5}
+.count-pill{display:inline-block;font-size:11px;color:#d4af37;border:1px solid #5c4a1e;border-radius:99px;padding:2px 9px;margin-left:6px}
+.back-row{margin:6px 0 2px}
+.note{font-size:12px;color:#8b97a6;margin-top:10px;line-height:1.5}
+footer{border-top:1px solid #1d1d1d;color:#6d7887;font-size:11px;text-align:center;padding:16px 12px;margin-top:26px}
+nav.tabbar{position:fixed;bottom:0;left:0;right:0;z-index:20;display:flex;background:rgba(10,10,12,0.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid #23262c;padding-bottom:env(safe-area-inset-bottom)}
+nav.tabbar button{flex:1;background:none;border:0;color:#8b97a6;font-size:10.5px;padding:9px 2px 10px;cursor:pointer;font-family:inherit}
+nav.tabbar button .ic{display:block;font-size:18px;margin-bottom:2px}
+nav.tabbar button.active{color:#ffd76a}
+#knt-err{display:none;position:fixed;bottom:96px;left:10px;right:10px;z-index:60;background:#8b1a1a;color:#fff;font-size:12px;border-radius:10px;padding:10px 12px}
 </style>
 </head>
 <body>
-<script>window.onerror=function(m,src,l,c){try{var b=document.getElementById("knt-err");if(!b){b=document.createElement("div");b.id="knt-err";b.style.cssText="position:fixed;top:0;left:0;right:0;z-index:9999;background:#8b1a1a;color:#fff;font:12px/1.4 monospace;padding:8px 10px;white-space:pre-wrap";(document.body||document.documentElement).insertBefore(b,document.body.firstChild)}b.style.display="block";b.textContent+="ERROR: "+m+" (linea "+l+")\n"}catch(e){}};</script>
+<header>
+  <div>
+    <div class="logo">KO <span class="net">net</span> TA <span class="arr">&#8599;</span></div>
+    <span class="byline">by VERBUM TECH SOLUTION</span>
+  </div>
+  <div id="devState" class="byline" style="letter-spacing:0.05em"></div>
+</header>
 
-<div class="wrap" id="inicio">
-<header class="top"><div><div class="brand">KO <span class="net">net</span> TA <span class="arrow">↗</span></div><div class="brandtag">by VERBUM TECH SOLUTION</div></div><div class="status" id="status">VISITANTE · DEMO</div></header>
-<section class="hero"><h1>Cada conexión abre<br><em>una posibilidad.</em></h1><p class="brand-promise">Ko net ta <span class="chrome-arrow">↗</span> te conecta.</p><p>Empresas, personas, conocimiento, proyectos y oportunidades: una red que se construye con cada vínculo.</p><div class="thread living"><canvas id="network"></canvas></div><div class="thread-caption">SOMOS LA KONEXIÓN. <span>TÚ ERES LA RED.</span></div><button class="primary join-cta" data-action="invite">Conectar <span>↗</span></button></section><section class="manifesto"><h2>Somos la konexión.<br><em>Tú eres la red.</em></h2><p>Queremos que cada persona deje un hilo, una tarjeta, una oportunidad, un conocimiento o una propuesta. La red crece con cada vínculo.</p><p class="manifesto-small">Conectar es el principio. La red la construimos entre todos.</p></section>
-<div class="search"><input id="search" type="search" placeholder="¿Qué buscas, necesitas o puedes ofrecer?" aria-label="Buscar en la red"><button class="primary" id="searchBtn">Conectar</button></div>
-<section class="section" id="explorar"><div class="sect-head"><h2>Explora la red</h2><small>Selecciona un nodo</small></div><div class="grid" id="nodes"></div><div class="panel" id="searchResults"><h3>Conexiones encontradas</h3><p class="empty">Selecciona una categoría o busca arriba. Los resultados visibles son datos demostrativos.</p></div></section>
-<section class="section" id="bolsas"><div class="sect-head"><h2>Tu bolsa de conexiones</h2><small>QR+ · espacio personal</small></div><p class="drop-hint">Cada enlace tiene una bolsa vacía. Deja caer una tarjeta para guardar una conexión y volver a ella cuando quieras.</p><div class="bags" id="bags"></div><div class="panel"><h3>¿Qué es una tarjeta QR+?</h3><p class="empty">Una tarjeta contiene una referencia codificada. La información de negocio que su propietario decide hacer pública se muestra sin login. El QR+ puede contener una referencia privada; solo la cuenta autenticada de la red VTS autorizada podría consultar sus datos vinculados.</p><p class="public-note">En esta demo, el QR+ y la autenticación se simulan localmente. No hay servidor de identidad ni acceso real a códigos privados todavía.</p></div></section>
-<section class="section" id="empresas"><div class="sect-head"><h2>Empresas visibles</h2><small>Información pública</small></div><div class="cards" id="businessCards"></div><p class="public-note">Los perfiles comerciales públicos se pueden consultar sin autenticación. Los datos de muestra están identificados como DEMO.</p></section>
-<section class="section" id="acceso"><div class="sect-head"><h2>Acceso a la red VTS</h2><small>Autenticación de muestra</small></div><div class="authbox"><h3 id="authTitle">¿Eres miembro de Ko net ta?</h3><p>Inicia una sesión demostrativa para mostrar cómo se desbloquearía el acceso a tarjetas QR+ privadas.</p><input id="demoUser" placeholder="Usuario demo (cualquier texto)" autocomplete="username"><button class="primary" id="login">Simular acceso VTS</button> <button class="ghost" id="logout" style="display:none">Cerrar sesión demo</button><p id="authExplain">No es un login real. No se valida identidad ni se contacta ningún servicio.</p></div></section>
-<section class="section" id="supercards"><div class="sect-head"><h2>Identidades y Super tarjetas</h2><small>DEMO · control individual</small></div><div class="supercard-demo"><h3>Super tarjeta · Equipo de 5</h3><p>Una identidad colectiva con cinco integrantes. Cada integrante decide qué redes y datos publica; la Super tarjeta solo muestra los elementos autorizados por cada persona.</p><div class="member-grid" id="memberProfiles"></div><div class="member-controls"><button type="button" class="primary" id="showSupercard">Ver Super tarjeta ↗</button><button type="button" class="ghost" id="resetMemberDemo">Restablecer demo</button></div><div id="supercardView" class="panel" style="display:none"></div></div><div class="safety-panel"><h3>🛡️ Bloqueos y reportes</h3><p>Bloquea una cuenta para cortar contacto y ocultar sus interacciones en tu vista. Los reportes se registran para revisión, no como condena automática.</p><input id="blockTarget" placeholder="Usuario demo a bloquear o reportar" style="width:100%;background:#090909;color:white;border:1px solid #42351b;border-radius:10px;padding:11px;margin:7px 0"><button type="button" class="ghost" id="blockUser">Bloquear perfil</button><button type="button" class="small" id="reportUser">Reportar para revisión</button><p id="safetyStatus" class="empty">0 bloqueos locales en esta demo. Umbral ilustrativo: 10 bloqueos únicos → revisión y posible limitación temporal con revisión humana.</p><div id="blockedList"></div></div></section><footer class="footer">Ko net ta <b>↗</b> te conecta · by VERBUM TECH SOLUTION<br>v3 compatible · Prototipo local: búsquedas, bolsas y sesión demo guardadas en este dispositivo.</footer>
-</div>
-<nav class="nav"><div class="navinner"><button data-nav="inicio"><span>⌂</span>Inicio</button><button data-nav="explorar"><span>✧</span>Explorar</button><button data-nav="bolsas"><span>◇</span>Mis bolsas</button><button data-nav="empresas"><span>▣</span>Empresas</button><button data-nav="acceso"><span>↗</span>Acceso</button><button data-nav="supercards"><span>♧</span>Grupos</button></div></nav>
-<div class="modal" id="modal"><div class="modalbox"><h2 id="modalTitle">Dejar caer una tarjeta</h2><p id="modalDesc" class="empty"></p><input id="cardName" placeholder="Nombre de la tarjeta"><textarea id="cardInfo" placeholder="Nota personal: ¿por qué guardas esta conexión?"></textarea><div class="modalbuttons"><button class="ghost" id="cancel">Cancelar</button><button class="primary" id="saveCard">Guardar tarjeta</button></div></div></div><div class="toast" id="toast"></div><section class="bag-open" id="bagMarketplace" style="display:none" aria-modal="true"></section>
+<main class="wrap" id="app">
+
+<section class="screen active" id="scr-inicio">
+  <h1>Cada conexi&oacute;n abre<br><em>una posibilidad.</em></h1>
+  <p class="lead">Ko net ta &#8599; te conecta.</p>
+  <div class="netbox"><canvas id="netCanvas"></canvas><div class="netlabel">Ko net ta</div></div>
+  <p class="lead">Empresas, personas, conocimiento, proyectos y oportunidades:<br>una red que se construye con cada v&iacute;nculo.</p>
+  <div class="cta-row">
+    <button class="btn" id="goExplorar">Conectar &#8599;</button>
+  </div>
+</section>
+
+<section class="screen" id="scr-explorar">
+  <h2>Explora la red</h2>
+  <p>Elige un nodo. Todo lo que ves aqu&iacute; son conexiones guardadas en este dispositivo, sin datos de prueba.</p>
+  <div class="node-grid" id="nodeGrid"></div>
+  <div id="nodePanel"></div>
+</section>
+
+<section class="screen" id="scr-tarjetas">
+  <h2>Mis tarjetas</h2>
+  <p>Tus conexiones guardadas, agrupadas por nodo. Se quedan en este dispositivo.</p>
+  <div id="cardsPanel"></div>
+</section>
+
+<section class="screen" id="scr-empresas">
+  <h2>Empresas</h2>
+  <p>Fichas p&uacute;blicas de negocios reales. Registra la tuya o las que conozcas; quedar&aacute;n en este dispositivo hasta conectar la plataforma.</p>
+  <button class="btn sm ghost" id="btnBizForm">+ Registrar ficha</button>
+  <div id="bizForm" style="display:none"></div>
+  <div id="bizList"></div>
+</section>
+
+<section class="screen" id="scr-acceso">
+  <h2>Acceso a la red VTS</h2>
+  <div class="empty">El acceso de miembros con QR+ se activar&aacute; cuando la plataforma VTS conecte su servidor de identidad.<br><br>Mientras tanto, la red funciona con los datos que guardas en este dispositivo: tus tarjetas y tus fichas de empresas.</div>
+</section>
+
+</main>
+
+<footer>Ko net ta te conecta &middot; by VERBUM TECH SOLUTION<br>Prototipo local: tarjetas y fichas guardadas en este dispositivo</footer>
+
+<nav class="tabbar" id="tabbar">
+  <button data-scr="scr-inicio" class="active"><span class="ic">&#8962;</span>Inicio</button>
+  <button data-scr="scr-explorar"><span class="ic">&#10023;</span>Explorar</button>
+  <button data-scr="scr-tarjetas"><span class="ic">&#9671;</span>Mis tarjetas</button>
+  <button data-scr="scr-empresas"><span class="ic">&#9635;</span>Empresas</button>
+  <button data-scr="scr-acceso"><span class="ic">&#8599;</span>Acceso</button>
+</nav>
+
+<div id="knt-err"></div>
+
 <script>
-const NODES=[{id:'empresas',icon:'▣',name:'Empresas',sub:'Actividad y oferta'},{id:'personas',icon:'◉',name:'Personas',sub:'Talento y especialistas'},{id:'conexiones',icon:'⟷',name:'Conexiones',sub:'Alianzas y relaciones'},{id:'informacion',icon:'⌕',name:'Información',sub:'Fuentes y conocimiento'},{id:'proyectos',icon:'⌁',name:'Proyectos',sub:'Ideas en movimiento'},{id:'academia',icon:'✧',name:'Academia',sub:'Aprendizaje y competencias'},{id:'oportunidades',icon:'↗',name:'Oportunidades',sub:'Clientes, empleo, socios'}];
-const DEMO_BUSINESSES=[{name:'Taller Creativo Horizonte',sector:'Diseño y comunicación',location:'La Habana · DEMO',desc:'Servicios de identidad visual y comunicación para pequeños negocios.'},{name:'Soluciones AgroVerde',sector:'Agro y suministros',location:'Cuba · DEMO',desc:'Perfil de muestra para mostrar oferta, zona y ficha pública.'},{name:'Nodo Digital Caribe',sector:'Tecnología',location:'LATAM · DEMO',desc:'Servicios digitales, soporte y desarrollo de soluciones.'},{name:'Academia Puente',sector:'Formación',location:'Cuba · DEMO',desc:'Cursos demostrativos y formación para emprendedores.'}];
-const BAG_IDS=['clientes','proveedores','alianzas','ideas'],BAG_LABELS=['Clientes potenciales','Proveedores','Alianzas','Ideas / proyectos'];function esc(s){return String(s).replace(/[&<>"']/g,function(c){return({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]})}
-function safeRead(key,fallback){try{const v=localStorage.getItem(key);return v?JSON.parse(v):fallback}catch(e){return fallback}}
-let state={logged:localStorage.getItem('knt_demo_logged')==='true',user:localStorage.getItem('knt_demo_user')||'',bags:safeRead('knt_bags',{}),memberSocial:safeRead('knt_member_social',{m1:['LinkedIn'],m2:['LinkedIn','Instagram','TikTok'],m3:['LinkedIn'],m4:[],m5:['WhatsApp']}),blocked:safeRead('knt_blocked',[]),reports:safeRead('knt_reports',[])};let chosenBag='',pendingCard=null;
-function persist(){try{localStorage.setItem('knt_bags',JSON.stringify(state.bags));localStorage.setItem('knt_demo_logged',String(state.logged));localStorage.setItem('knt_demo_user',state.user);localStorage.setItem('knt_member_social',JSON.stringify(state.memberSocial));localStorage.setItem('knt_blocked',JSON.stringify(state.blocked));localStorage.setItem('knt_reports',JSON.stringify(state.reports))}catch(e){toast('Aviso: el navegador no permite guardar localmente')}}
-function toast(m){const t=document.getElementById('toast');t.textContent=m;t.style.display='block';clearTimeout(window.kntToastTimer);window.kntToastTimer=setTimeout(()=>t.style.display='none',2300)}
-function go(id){const el=document.getElementById(id);if(!el){toast('Sección no disponible');return}el.scrollIntoView({behavior:'smooth',block:'start'})}
-function inviteNetwork(){go('acceso');toast('Introduce un nombre para abrir el acceso demo');setTimeout(()=>{const inp=document.getElementById('demoUser');if(inp&&!state.logged){inp.focus();inp.scrollIntoView({behavior:'smooth',block:'center'})}},450)}
-function renderNodes(){const root=document.getElementById('nodes');root.innerHTML=NODES.map(n=>`<button class="tile" type="button" data-node="${n.id}"><span class="ico">${n.icon}</span><b>${n.name}</b><span>${n.sub}</span></button>`).join('')}
-function renderBusinesses(){document.getElementById('businessCards').innerHTML=DEMO_BUSINESSES.map((b,i)=>`<article class="card"><div class="qr">QR+</div><div class="bizbody"><h3>${b.name} <span class="demo-tag">DEMO</span></h3><p>${b.sector} · ${b.location}</p><p>${b.desc}</p><div class="business-contact"><a href="https://instagram.com/" target="_blank" rel="noopener">◎ Instagram</a><a href="https://facebook.com/" target="_blank" rel="noopener">f Facebook</a><a href="https://wa.me/" target="_blank" rel="noopener">◉ WhatsApp</a><a href="https://example.com/" target="_blank" rel="noopener">⌘ Web</a><a href="mailto:contacto@example.com">✉ Correo</a></div><div class="card-actions"><button type="button" class="small" data-save-index="${i}">＋ Guardar tarjeta</button><button type="button" class="small ghost" data-public-index="${i}">Ver ficha pública</button><button type="button" class="small ghost" data-open-business="${i}">Abrir negocio ↗</button></div></div></article>`).join('')}
-function renderBags(){document.getElementById('bags').innerHTML=BAG_IDS.map((id,i)=>{let arr=state.bags[id]||[];return `<div class="bag"><div class="bagicon">◇</div><b>${BAG_LABELS[i]}</b><p>${arr.length} tarjeta(s) guardada(s)</p><button type="button" class="ghost" data-drop-bag="${id}">＋ Dejar caer tarjeta</button><button type="button" class="small" data-open-bag="${id}">Abrir bolsa a pantalla completa ↗</button>${arr.length?`<button type="button" class="small" data-show-bag="${id}">Ver tarjetas</button>`:''}</div>`}).join('')}
-function renderAuth(){document.getElementById('status').textContent=state.logged?'MIEMBRO DEMO · '+state.user:'VISITANTE · DEMO';document.getElementById('authTitle').textContent=state.logged?'Sesión de demostración activa':'¿Eres miembro de Ko net ta?';document.getElementById('login').style.display=state.logged?'none':'inline-block';document.getElementById('logout').style.display=state.logged?'inline-block':'none';document.getElementById('demoUser').style.display=state.logged?'none':'block';document.getElementById('authExplain').textContent=state.logged?'Acceso simulado activo. Los datos QR+ privados siguen siendo ejemplos locales.':'No es un login real. No se valida identidad ni se contacta ningún servicio.'}
-function searchFor(id){document.querySelectorAll('.tile').forEach(t=>t.classList.toggle('active',t.dataset.node===id));let label=(NODES.find(n=>n.id===id)||{}).name||id;let list=DEMO_BUSINESSES.filter(b=>`${b.name} ${b.sector} ${b.desc}`.toLowerCase().includes(label.toLowerCase())||['empresas','oportunidades','conexiones','informacion','proyectos','personas','academia'].includes(id));document.getElementById('searchResults').innerHTML=`<h3>${label} <span class="demo-tag">MODO DEMO</span></h3><p class="empty">La categoría seleccionada activa una búsqueda ilustrativa. Los perfiles siguientes son ficticios, no resultados reales de la red.</p><p class="public-note">Explora lo público; para guardar tarjetas QR+ y abrir conexiones privadas, entra a la red.</p><button type="button" class="small primary" data-action="invite">Ver Ko net ta por dentro ↗</button>`+list.map(b=>`<div class="result"><div class="meta">${b.sector} · ${b.location}</div><b>${b.name}</b><p>${b.desc}</p><div class="actions"><button type="button" class="small" data-save-name="${b.name}">＋ Guardar conexión</button></div></div>`).join('')+`<div class="result"><b>¿No encontraste lo que buscas?</b><p>En una versión conectada podrás publicar una necesidad y dejar que la red encuentre posibles coincidencias.</p><span class="demo-tag">FUNCIÓN FUTURA</span></div>`;go('searchResults')}
-function runSearch(){let q=document.getElementById('search').value.trim();if(!q){toast('Escribe una necesidad o palabra clave');document.getElementById('search').focus();return}let results=DEMO_BUSINESSES.filter(b=>`${b.name} ${b.sector} ${b.location} ${b.desc}`.toLowerCase().includes(q.toLowerCase()));document.querySelectorAll('.tile').forEach(t=>t.classList.remove('active'));document.getElementById('searchResults').innerHTML=`<h3>Resultados para: “${esc(q)}”</h3><p class="empty">Búsqueda local en los ejemplos DEMO. No consulta una base real.</p><p class="public-note">La información pública permanece abierta. Para guardar tarjetas QR+, conectar con miembros o continuar dentro de la red, autentícate.</p><button type="button" class="small primary" data-action="invite">Entrar a Ko net ta ↗</button>`+(results.length?results.map(b=>`<div class="result"><div class="meta">${b.sector} · ${b.location}</div><b>${b.name}</b><p>${b.desc}</p><div class="actions"><button type="button" class="small" data-save-name="${b.name}">＋ Guardar conexión</button></div></div>`).join(''):`<p class="empty">No hay coincidencias de muestra. En una red real, podrías publicar esta búsqueda como una necesidad abierta.</p>`);go('searchResults')}
-function publicInfo(i){let b=DEMO_BUSINESSES[i];alert(`${b.name}
-${b.sector}
-${b.location}
+'use strict';
+/* VTS ko-net-ta v4 pantallas independientes, sin datos demo. 2026-11-24 */
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;')}
+var errBox=document.getElementById('knt-err');
+window.onerror=function(m){try{errBox.style.display='block';errBox.textContent='Aviso: '+m}catch(e){}return false};
 
-${b.desc}
+var NODES=[
+ {id:'empresas',ico:'\u25A3',name:'Empresas',sub:'Actividad y oferta',color:'#ff3b4f'},
+ {id:'personas',ico:'\u25C9',name:'Personas',sub:'Talento y especialistas',color:'#d4af37'},
+ {id:'conexiones',ico:'\u27F7',name:'Conexiones',sub:'Alianzas y relaciones',color:'#48d8ff'},
+ {id:'informacion',ico:'\u2315',name:'Informaci\u00f3n',sub:'Fuentes y conocimiento',color:'#a9b7c8'},
+ {id:'proyectos',ico:'\u2301',name:'Proyectos',sub:'Ideas en movimiento',color:'#c06bff'},
+ {id:'academia',ico:'\u2727',name:'Academia',sub:'Aprendizaje y competencias',color:'#71ef87'},
+ {id:'oportunidades',ico:'\u2197',name:'Oportunidades',sub:'Clientes, empleo, socios',color:'#ff8a35'}
+];
+function nodeById(id){for(var i=0;i<NODES.length;i++){if(NODES[i].id===id)return NODES[i]}return null}
+var store={};
+function load(){try{store.cards=JSON.parse(localStorage.getItem('konta_cards')||'[]');store.biz=JSON.parse(localStorage.getItem('konta_biz')||'[]')}catch(e){store.cards=[];store.biz=[]}}
+function save(){try{localStorage.setItem('konta_cards',JSON.stringify(store.cards));localStorage.setItem('konta_biz',JSON.stringify(store.biz))}catch(e){}}
+function uid(){return 'k'+Date.now().toString(36)+Math.floor(Math.random()*1e4).toString(36)}
 
-Ficha pública de demostración. Datos ficticios.`)}
-function saveBusiness(name){pendingCard={name,info:'Tarjeta de perfil comercial público (DEMO)'};openModal()}
-function saveToBag(i){saveBusiness(DEMO_BUSINESSES[i].name)}
-function dropInto(id){chosenBag=id;pendingCard=null;openModal()}
-function openModal(){document.getElementById('modalTitle').textContent=pendingCard?'Guardar tarjeta de conexión':'Dejar caer una tarjeta';document.getElementById('modalDesc').textContent=pendingCard?`Guardar “${pendingCard.name}” en una bolsa personal. Esta acción se conserva en este dispositivo.`:'Crea una tarjeta de prueba para depositarla en la bolsa seleccionada.';document.getElementById('cardName').value=(pendingCard&&pendingCard.name)||'';document.getElementById('cardInfo').value=(pendingCard&&pendingCard.info)||'';document.getElementById('modal').classList.add('open');document.getElementById('cardName').focus()}
-function saveCard(){let name=document.getElementById('cardName').value.trim(),info=document.getElementById('cardInfo').value.trim();if(!name){toast('Ponle un nombre a la tarjeta');document.getElementById('cardName').focus();return}let target=chosenBag||BAG_IDS[0];state.bags[target]=state.bags[target]||[];state.bags[target].push({name,info,created:new Date().toLocaleDateString()});persist();renderBags();document.getElementById('modal').classList.remove('open');chosenBag='';pendingCard=null;toast('Tarjeta guardada en tu bolsa')}
-function showBag(id){let arr=state.bags[id]||[];if(!arr.length){toast('Esta bolsa todavía está vacía');return}let out=arr.map((c,i)=>`<div class="result"><b>${c.name}</b><p>${c.info||'Sin nota personal'} · ${c.created||''}</p><button type="button" class="small ghost" data-remove-card="${id}|${i}">Quitar de bolsa</button></div>`).join('');document.getElementById('searchResults').innerHTML=`<h3>${BAG_LABELS[BAG_IDS.indexOf(id)]}</h3><p class="empty">Tarjetas guardadas localmente. Privadas para este dispositivo en esta demo.</p>${out}`;go('searchResults')}
+/* navegacion por pantallas independientes */
+function showScreen(id){
+  var scr=document.querySelectorAll('.screen');
+  for(var i=0;i<scr.length;i++){scr[i].className='screen'+(scr[i].id===id?' active':'')}
+  var btns=document.querySelectorAll('#tabbar button');
+  for(var j=0;j<btns.length;j++){btns[j].className=(btns[j].getAttribute('data-scr')===id?'active':'')}
+  window.scrollTo(0,0);
+  if(id==='scr-tarjetas')renderCards();
+  if(id==='scr-empresas')renderBiz();
+}
+document.getElementById('tabbar').addEventListener('click',function(ev){
+  var b=ev.target;while(b&&b.tagName!=='BUTTON')b=b.parentNode;
+  if(b&&b.getAttribute('data-scr'))showScreen(b.getAttribute('data-scr'));
+});
+document.getElementById('goExplorar').addEventListener('click',function(){showScreen('scr-explorar')});
 
-function openBusiness(i){const b=DEMO_BUSINESSES[i];document.getElementById('searchResults').innerHTML=`<h2 style="color:#ff5968">${b.name} · HUB de negocio</h2><p class="demo-tag">FICHA PÚBLICA DEMO</p><p>${b.sector} · ${b.location}</p><p>${b.desc}</p><div class="business-contact"><a href="https://instagram.com/" target="_blank" rel="noopener">Instagram ↗</a><a href="https://facebook.com/" target="_blank" rel="noopener">Facebook ↗</a><a href="https://wa.me/" target="_blank" rel="noopener">WhatsApp ↗</a><a href="https://example.com/" target="_blank" rel="noopener">Página web ↗</a><a href="mailto:contacto@example.com">Correo ↗</a></div><div class="panel"><h3>🔒 Información reservada</h3><p>El propietario puede marcar información como privada. En este prototipo solo se muestra el candado; la protección real, los pagos y el control de acceso requieren backend.</p><button type="button" class="primary" data-action="invite">Solicitar acceso / conectar</button></div><div class="panel"><h3>Mercado / Shop</h3><p>Si el negocio decide vender, su bolsa puede abrir como escaparate de pantalla completa, con catálogo, productos y contacto.</p><button type="button" class="primary" data-open-bag="market-${i}">Abrir su shop a pantalla completa ↗</button></div>`;go('searchResults')}
-function openBagFullscreen(id){const section=document.getElementById('bagMarketplace');if(!section)return;let business=DEMO_BUSINESSES[0];let isMarket=id.startsWith('market-');if(isMarket)business=DEMO_BUSINESSES[Number(id.split('-')[1])]||business;let items=isMarket?[{name:'Producto / servicio destacado',price:'Consultar',desc:'Contenido de catálogo de ejemplo'},{name:'Oferta especial',price:'Consultar',desc:'Una propuesta comercial de muestra'},{name:'Producto nuevo',price:'Consultar',desc:'Ficha editable futura'}]:(state.bags[id]||[]).map(c=>({name:c.name,price:'Personal',desc:c.info||'Guardado en tu colección'}));section.innerHTML=`<div class="bag-head"><div><small style="color:#c06bff">KO NET TA · ${isMarket?'SHOP DEMO':'BOLSA PERSONAL'}</small><h2 style="margin:4px 0">${isMarket?business.name:BAG_LABELS[BAG_IDS.indexOf(id)]||id}</h2><p style="color:#aeb8c8;margin:0">${isMarket?'Escaparate abierto del negocio · demo':'Tus conexiones guardadas en este dispositivo'}</p></div><button class="bag-close" type="button" data-close-bag>✕ Cerrar</button></div>${isMarket?`<p>${business.desc}</p><div class="business-contact"><a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a><a href="https://facebook.com/" target="_blank" rel="noopener">Facebook</a><a href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a><a href="https://example.com/" target="_blank" rel="noopener">Web</a><a href="mailto:contacto@example.com">Correo</a></div>`:''}<div class="bag-products">${items.length?items.map(x=>`<article class="bag-product"><h4>${esc(x.name)}</h4><p>${esc(x.desc)}</p><div class="price">${x.price}</div>${isMarket?'<button type="button" class="small primary" data-action="invite">Consultar / contactar</button>':''}</article>`).join(''):`<div class="bag-product"><h4>Bolsa vacía</h4><p>Guarda conexiones aquí, o abre el shop de un negocio.</p></div>`}</div>${isMarket?'<p class="public-note bag-lock">🔒 Este negocio puede elegir datos privados de pago. La demo no bloquea información real.</p>':''}`;section.style.display='block';section.scrollTop=0;document.body.style.overflow='hidden'}
-function closeBagFullscreen(){const section=document.getElementById('bagMarketplace');section.style.display='none';section.innerHTML='';document.body.style.overflow=''}
+/* explorar: nodos */
+function renderNodeGrid(){
+  var g=document.getElementById('nodeGrid'),h='';
+  for(var i=0;i<NODES.length;i++){var n=NODES[i];
+    var c=0;for(var k=0;k<store.cards.length;k++){if(store.cards[k].node===n.id)c++}
+    h+='<button class="node" data-node="'+n.id+'"><span class="ico">'+n.ico+'</span><b>'+esc(n.name)+'</b><small>'+esc(n.sub)+(c?' \u00b7 '+c:'')+'</small></button>'}
+  g.innerHTML=h;
+}
+document.getElementById('nodeGrid').addEventListener('click',function(ev){
+  var b=ev.target;while(b&&!b.getAttribute('data-node'))b=b.parentNode;
+  if(b)openNode(b.getAttribute('data-node'));
+});
+function openNode(id){
+  var n=nodeById(id);if(!n)return;
+  var mine=[];for(var i=0;i<store.cards.length;i++){if(store.cards[i].node===id)mine.push(store.cards[i])}
+  var h='<div class="back-row"><button class="btn sm ghost" id="nodeBack">&larr; Nodos</button></div>';
+  h+='<h3>'+n.ico+' '+esc(n.name)+' <span class="count-pill">'+mine.length+' conexi\u00f3n(es)</span></h3>';
+  if(mine.length===0){h+='<div class="empty">A\u00fan no hay conexiones en '+esc(n.name)+'.<br>Deja la primera tarjeta: una referencia real que quieras conservar o compartir.</div>'}
+  for(var i=0;i<mine.length;i++){var t=mine[i];
+    h+='<div class="card"><h4>'+esc(t.title)+'</h4>'+(t.note?'<p class="meta">'+esc(t.note)+'</p>':'')+(t.contact?'<p class="meta">Contacto: '+esc(t.contact)+'</p>':'')+'<div class="actions"><button class="btn sm danger" data-del="'+t.id+'">Eliminar</button></div></div>'}
+  h+='<div id="cardForm" style="display:none">'+cardFormHTML(id)+'</div>';
+  h+='<button class="btn sm" id="newCard">+ Nueva tarjeta en '+esc(n.name)+'</button>';
+  var p=document.getElementById('nodePanel');p.innerHTML=h;
+  document.getElementById('nodeBack').addEventListener('click',function(){p.innerHTML='';renderNodeGrid()});
+  document.getElementById('newCard').addEventListener('click',function(){var f=document.getElementById('cardForm');f.style.display=(f.style.display==='none'?'block':'none')});
+  bindDel(p,function(){openNode(id)});
+}
+function cardFormHTML(nodeId){
+  return '<label>Nombre o referencia</label><input id="cf-title" maxlength="80">'
+  +'<label>Nota (opcional)</label><textarea id="cf-note" rows="2" maxlength="300"></textarea>'
+  +'<label>Contacto (tel\u00e9fono, correo o enlace, opcional)</label><input id="cf-contact" maxlength="120">'
+  +'<label>Nodo</label><select id="cf-node">'+(function(){var o='';for(var i=0;i<NODES.length;i++){o+='<option value="'+NODES[i].id+'"'+(NODES[i].id===nodeId?' selected':'')+'>'+esc(NODES[i].name)+'</option>'}return o})()+'</select>'
+  +'<p><button class="btn sm" id="cf-save">Guardar tarjeta</button></p>';
+}
+function bindDel(container,after){
+  var bs=container.querySelectorAll('[data-del]');
+  function handler(ev){var el=ev.target;while(el&&!el.getAttribute('data-del'))el=el.parentNode;if(!el)return;var id=el.getAttribute('data-del');
+    var nx=[];for(var i=0;i<store.cards.length;i++){if(store.cards[i].id!==id)nx.push(store.cards[i])}
+    store.cards=nx;save();after&&after();}
+  for(var i=0;i<bs.length;i++){bs[i].addEventListener('click',handler)}
+}
+document.getElementById('nodePanel').addEventListener('click',function(ev){
+  if(ev.target.id!=='cf-save')return;
+  var t=document.getElementById('cf-title').value.trim();if(!t){alert('Escribe un nombre o referencia');return}
+  store.cards.push({id:uid(),node:document.getElementById('cf-node').value,title:t,note:document.getElementById('cf-note').value.trim(),contact:document.getElementById('cf-contact').value.trim(),when:new Date().toISOString().slice(0,10)});
+  save();openNode(document.getElementById('cf-node').value);renderNodeGrid();
+});
 
-const SAMPLE_MEMBERS=[{id:'m1',name:'Miembro 1',role:'LinkedIn solamente'},{id:'m2',name:'Miembro 2',role:'Presencia amplia'},{id:'m3',name:'Miembro 3',role:'Perfil profesional'},{id:'m4',name:'Miembro 4',role:'Sin redes publicadas'},{id:'m5',name:'Miembro 5',role:'Contacto selectivo'}];
-function renderMembers(){const root=document.getElementById('memberProfiles');if(!root)return;root.innerHTML=SAMPLE_MEMBERS.map(m=>{let selected=state.memberSocial[m.id]||[];return `<article class="member"><h4>${m.name}</h4><small>${m.role}</small><p class="empty">Redes visibles elegidas:</p>${selected.length?selected.map(n=>`<span class="privacy-pill">${n}</span> `).join(''):'<span class="privacy-pill">Sin redes expuestas</span>'}<div class="member-controls">${['LinkedIn','Instagram','TikTok','Facebook','WhatsApp'].map(n=>`<button type="button" class="small ${selected.includes(n)?'primary':'ghost'}" data-social-toggle="${m.id}|${n}">${selected.includes(n)?'✓ ':'+ '}${n}</button>`).join('')}</div><p class="empty">El miembro puede editar su propia selección (demo).</p></article>`}).join('')}
-function renderBlocked(){let el=document.getElementById('blockedList'),st=document.getElementById('safetyStatus');if(!el||!st)return;st.textContent=`${state.blocked.length} bloqueo(s) únicos en este dispositivo. ${state.blocked.length>=10?'Umbral alcanzado: se marca para revisión humana y posible limitación temporal; no se decide culpabilidad automáticamente.':'Umbral ilustrativo: 10 bloqueos únicos → revisión humana y posible limitación temporal.'}`;el.innerHTML=state.blocked.length?`<p><b>Perfiles bloqueados:</b> ${state.blocked.map(x=>esc(x.name)).join(', ')}</p>`:''}
-function blockProfile(){let name=document.getElementById('blockTarget').value.trim();if(!name){toast('Escribe el usuario que deseas bloquear');return}if(state.blocked.some(x=>x.name.toLowerCase()===name.toLowerCase())){toast('Este perfil ya está bloqueado');return}state.blocked.push({name,at:new Date().toISOString()});persist();renderBlocked();toast('Perfil bloqueado en esta demo')}
-function reportProfile(){let name=document.getElementById('blockTarget').value.trim();if(!name){toast('Escribe el usuario que deseas reportar');return}state.reports.push({name,at:new Date().toISOString(),status:'Pendiente de revisión'});persist();toast('Reporte de muestra guardado para revisión')}
-function toggleSocial(id,network){let arr=state.memberSocial[id]||[];state.memberSocial[id]=arr.includes(network)?arr.filter(x=>x!==network):arr.concat(network);persist();renderMembers()}
-function showSupercard(){let v=document.getElementById('supercardView');if(!v)return;v.style.display='block';v.innerHTML=`<h3>Super tarjeta · Equipo de 5</h3><p>Vista agregada de identidades con permiso de compartir.</p><div class="member-grid">${SAMPLE_MEMBERS.map(m=>{let links=state.memberSocial[m.id]||[];return `<article class="member"><h4>${m.name}</h4><p class="empty">${links.length?'Redes elegidas por la persona:':'No expone redes.'}</p>${links.map(n=>`<span class="privacy-pill">${n}</span>`).join(' ')}</article>`}).join('')}</div><p class="public-note">Cada miembro mantiene control sobre su exposición. El administrador principal tampoco ve datos privados que no se hayan autorizado.</p>`}
-function resetMemberDemo(){state.memberSocial={m1:['LinkedIn'],m2:['LinkedIn','Instagram','TikTok'],m3:['LinkedIn'],m4:[],m5:['WhatsApp']};persist();renderMembers();let v=document.getElementById('supercardView');if(v)v.style.display='none';toast('Demo de miembros restablecida')}
-function removeCard(id,i){state.bags[id].splice(i,1);persist();renderBags();showBag(id)}
-// Event delegation: works for generated buttons and avoids fragile inline handlers.
-document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.nav){go(b.dataset.nav);return}if(b.dataset.action==='invite'){inviteNetwork();return}if(b.dataset.node){searchFor(b.dataset.node);return}if(b.dataset.saveIndex!==undefined){saveToBag(Number(b.dataset.saveIndex));return}if(b.dataset.publicIndex!==undefined){publicInfo(Number(b.dataset.publicIndex));return}if(b.dataset.openBusiness!==undefined){openBusiness(Number(b.dataset.openBusiness));return}if(b.dataset.openBag!==undefined){openBagFullscreen(b.dataset.openBag);return}if(b.dataset.closeBag!==undefined){closeBagFullscreen();return}if(b.dataset.dropBag){dropInto(b.dataset.dropBag);return}if(b.dataset.showBag){showBag(b.dataset.showBag);return}if(b.dataset.saveName){saveBusiness(b.dataset.saveName);return}if(b.dataset.removeCard){let [id,i]=b.dataset.removeCard.split('|');removeCard(id,Number(i));return}if(b.dataset.socialToggle){let [id,n]=b.dataset.socialToggle.split('|');toggleSocial(id,n);return}});
- document.getElementById('blockUser').addEventListener('click',blockProfile);document.getElementById('reportUser').addEventListener('click',reportProfile);document.getElementById('showSupercard').addEventListener('click',showSupercard);document.getElementById('resetMemberDemo').addEventListener('click',resetMemberDemo);
-document.getElementById('searchBtn').addEventListener('click',runSearch);document.getElementById('search').addEventListener('keydown',e=>{if(e.key==='Enter')runSearch()});document.getElementById('login').addEventListener('click',()=>{let u=document.getElementById('demoUser').value.trim();if(!u){toast('Escribe un usuario demo');document.getElementById('demoUser').focus();return}state.logged=true;state.user=u;persist();renderAuth();toast('Sesión demo iniciada')});document.getElementById('logout').addEventListener('click',()=>{state.logged=false;state.user='';persist();renderAuth();toast('Sesión demo cerrada')});document.getElementById('cancel').addEventListener('click',()=>document.getElementById('modal').classList.remove('open'));document.getElementById('saveCard').addEventListener('click',saveCard);
-renderNodes();renderBusinesses();renderBags();renderAuth();renderMembers();renderBlocked();
-// Animated canvas with a layered CSS glow fallback. Reduced-motion users get a still network.
-(function startNetwork(){const canvas=document.getElementById('network');if(!canvas||!canvas.getContext)return;let ctx;try{ctx=canvas.getContext('2d')}catch(err){return}if(!ctx)return;let w=0,h=0,ratio=Math.min(window.devicePixelRatio||1,2),t=0,raf;const colors=['#ffd76a','#ff7417','#46d9ff','#287dff','#c06bff','#a8f5ff','#f8a4ff'];const nodes=Array.from({length:52},(_,i)=>({a:i/52*Math.PI*2,r:.18+Math.random()*.37,phase:Math.random()*6.28,speed:.2+Math.random()*.45,c:colors[i%colors.length]}));function resize(){let rect=canvas.getBoundingClientRect();w=Math.max(1,rect.width);h=Math.max(1,rect.height);canvas.width=Math.round(w*ratio);canvas.height=Math.round(h*ratio);ctx.setTransform(ratio,0,0,ratio,0,0)}window.addEventListener('resize',resize);resize();function draw(){t+=.012;ctx.clearRect(0,0,w,h);let center=[w/2,h/2],p=nodes.map(n=>{let ang=n.a+Math.sin(t*.32+n.phase)*.24,rad=n.r+Math.sin(t*n.speed+n.phase)*.1+Math.cos(t*.6+n.phase)*.06;return[center[0]+Math.cos(ang)*w*rad,center[1]+Math.sin(ang)*h*rad]});for(let i=0;i<p.length;i++)for(let j=i+1;j<p.length;j++){let d=Math.hypot(p[i][0]-p[j][0],p[i][1]-p[j][1]),limit=Math.min(w,h)*.27;if(d<limit&&((i+j)%3)){let a=Math.max(0,1-d/limit);ctx.beginPath();ctx.moveTo(p[i][0],p[i][1]);ctx.lineTo(p[j][0],p[j][1]);ctx.strokeStyle=nodes[i].c;ctx.globalAlpha=.06+a*.28;ctx.lineWidth=.4+a;ctx.stroke();ctx.globalAlpha=1}}for(let i=0;i<p.length;i++){let pulse=(Math.sin(t*2+nodes[i].phase)+1)/2,r=1.5+pulse*2.7;ctx.beginPath();ctx.arc(p[i][0],p[i][1],r,0,Math.PI*2);ctx.fillStyle=nodes[i].c;ctx.shadowColor=nodes[i].c;ctx.shadowBlur=9+pulse*12;ctx.fill();ctx.shadowBlur=0}let g=ctx.createRadialGradient(center[0],center[1],1,center[0],center[1],Math.min(w,h)*.18);g.addColorStop(0,'#fff6c522');g.addColorStop(.3,'#46d9ff16');g.addColorStop(1,'transparent');ctx.fillStyle=g;ctx.beginPath();ctx.arc(center[0],center[1],Math.min(w,h)*.18,0,Math.PI*2);ctx.fill();ctx.font='bold 15px system-ui';ctx.textAlign='center';ctx.fillStyle='#dce5f0';ctx.shadowColor='#46d9ff';ctx.shadowBlur=8;ctx.fillText('Ko net ta',center[0],center[1]+5);ctx.shadowBlur=0;if(!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches))raf=requestAnimationFrame(draw)}draw();})();
+/* mis tarjetas */
+function renderCards(){
+  var p=document.getElementById('cardsPanel');
+  if(store.cards.length===0){p.innerHTML='<div class="empty">Todav\u00eda no guardaste tarjetas.<br>Ve a Explorar, elige un nodo y deja la primera.</div>';return}
+  var h='';var total=0;
+  for(var i=0;i<NODES.length;i++){var n=NODES[i];var mine=[];
+    for(var k=0;k<store.cards.length;k++){if(store.cards[k].node===n.id)mine.push(store.cards[k])}
+    if(mine.length===0)continue;total+=mine.length;
+    h+='<h3>'+n.ico+' '+esc(n.name)+' <span class="count-pill">'+mine.length+'</span></h3>';
+    for(var j=0;j<mine.length;j++){var t=mine[j];
+      h+='<div class="card"><h4>'+esc(t.title)+'</h4>'+(t.note?'<p class="meta">'+esc(t.note)+'</p>':'')+(t.contact?'<p class="meta">Contacto: '+esc(t.contact)+'</p>':'')+'<p class="meta">Guardada: '+esc(t.when)+'</p><div class="actions"><button class="btn sm danger" data-del="'+t.id+'">Eliminar</button></div></div>'}
+  }
+  if(total===0){p.innerHTML='<div class="empty">Todav\u00eda no guardaste tarjetas.<br>Ve a Explorar, elige un nodo y deja la primera.</div>';return}
+  p.innerHTML=h;bindDel(p,renderCards);
+}
 
+/* empresas */
+var bizFormOpen=false;
+document.getElementById('btnBizForm').addEventListener('click',function(){
+  var f=document.getElementById('bizForm');bizFormOpen=!bizFormOpen;f.style.display=bizFormOpen?'block':'none';
+  if(bizFormOpen&&!f.innerHTML){f.innerHTML='<label>Nombre del negocio</label><input id="bf-name" maxlength="80">'
+    +'<label>Actividad</label><input id="bf-act" maxlength="80">'
+    +'<label>Zona (municipio, provincia)</label><input id="bf-zone" maxlength="80">'
+    +'<label>WhatsApp de contacto</label><input id="bf-wa" maxlength="40" placeholder="+53 ...">'
+    +'<label>Descripci\u00f3n (opcional)</label><textarea id="bf-desc" rows="2" maxlength="300"></textarea>'
+    +'<p><button class="btn sm" id="bf-save">Guardar ficha</button></p>'}
+});
+document.getElementById('bizForm').addEventListener('click',function(ev){
+  if(ev.target.id!=='bf-save')return;
+  var nm=document.getElementById('bf-name').value.trim();if(!nm){alert('Escribe el nombre del negocio');return}
+  store.biz.push({id:uid(),name:nm,act:document.getElementById('bf-act').value.trim(),zone:document.getElementById('bf-zone').value.trim(),wa:document.getElementById('bf-wa').value.trim(),desc:document.getElementById('bf-desc').value.trim(),when:new Date().toISOString().slice(0,10)});
+  save();renderBiz();
+});
+function renderBiz(){
+  var p=document.getElementById('bizList');
+  if(store.biz.length===0){p.innerHTML='<div class="empty">A\u00fan no hay fichas registradas en este dispositivo.</div>';return}
+  var h='';
+  for(var i=0;i<store.biz.length;i++){var b=store.biz[i];
+    var wa=b.wa?b.wa.replace(/[^0-9+]/g,''):'';
+    var waLink=wa?wa.replace('+',''):'';
+    h+='<div class="card"><h4>'+esc(b.name)+'</h4>'
+      +(b.act?'<p class="meta">'+esc(b.act)+'</p>':'')
+      +(b.zone?'<p class="meta">'+esc(b.zone)+'</p>':'')
+      +(b.desc?'<p>'+esc(b.desc)+'</p>':'')
+      +'<div class="actions">'
+      +(waLink?'<a class="btn sm ghost" href="https://wa.me/'+esc(waLink)+'" target="_blank" rel="noopener">WhatsApp</a>':'')
+      +'<button class="btn sm danger" data-del="'+b.id+'">Eliminar</button></div></div>'}
+  p.innerHTML=h;
+  var bs=p.querySelectorAll('[data-del]');
+  function del(ev){var el=ev.target;while(el&&!el.getAttribute('data-del'))el=el.parentNode;if(!el)return;var id=el.getAttribute('data-del');
+    var nx=[];for(var i=0;i<store.biz.length;i++){if(store.biz[i].id!==id)nx.push(store.biz[i])}
+    store.biz=nx;save();renderBiz();}
+  for(var j=0;j<bs.length;j++){bs[j].addEventListener('click',del)}
+}
+
+/* red animada */
+function drawNet(){
+  var cv=document.getElementById('netCanvas');if(!cv||!cv.getContext)return;
+  var ctx=cv.getContext('2d');
+  function size(){var r=cv.parentNode.getBoundingClientRect();cv.width=r.width;cv.height=r.height}
+  size();
+  var cols=['#d4af37','#ff7417','#46d9ff','#c06bff','#71ef87'];
+  var pts=[];for(var i=0;i<26;i++){pts.push({x:Math.random()*cv.width,y:Math.random()*cv.height,vx:(Math.random()-0.5)*0.35,vy:(Math.random()-0.5)*0.35,r:1.2+Math.random()*2.2,c:cols[i%cols.length]})}
+  function frame(){
+    ctx.clearRect(0,0,cv.width,cv.height);
+    for(var i=0;i<pts.length;i++){var a=pts[i];a.x+=a.vx;a.y+=a.vy;
+      if(a.x<0||a.x>cv.width)a.vx=-a.vx;if(a.y<0||a.y>cv.height)a.vy=-a.vy;
+      for(var j=i+1;j<pts.length;j++){var b=pts[j];var dx=a.x-b.x,dy=a.y-b.y;var d2=dx*dx+dy*dy;
+        if(d2<15000){ctx.strokeStyle='rgba(120,160,220,'+(0.22*(1-d2/15000))+')';ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke()}}}
+    for(var k=0;k<pts.length;k++){var p=pts[k];ctx.fillStyle=p.c;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,6.29);ctx.fill()}
+    requestAnimationFrame(frame);
+  }
+  frame();
+}
+
+/* arranque resistente: cada pieza por separado */
+function boot(){
+  try{load()}catch(e){}
+  try{renderNodeGrid()}catch(e){}
+  try{renderCards()}catch(e){}
+  try{renderBiz()}catch(e){}
+  try{drawNet()}catch(e){}
+  try{document.getElementById('devState').textContent='V4'}catch(e){}
+}
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',boot)}else{boot()}
 </script>
-</body></html>
+</body>
+</html>
